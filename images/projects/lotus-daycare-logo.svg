@@ -1,0 +1,12 @@
+<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lotus Family Group Daycare">
+  <g transform="translate(10,0)">
+    <ellipse cx="100" cy="145" rx="28" ry="16" fill="#FFD700" opacity=".55"/>
+    <path d="M100 131 Q72 103 72 71 Q72 35 100 27 Q128 35 128 71 Q128 103 100 131Z" fill="#FFD700"/>
+    <path d="M100 119 Q56 103 44 67 Q36 35 60 27 Q84 23 92 63 Q96 83 100 119Z" fill="#FFD700" opacity=".88"/>
+    <path d="M100 119 Q144 103 156 67 Q164 35 140 27 Q116 23 108 63 Q104 83 100 119Z" fill="#FFD700" opacity=".88"/>
+    <path d="M100 107 Q40 95 28 55 Q20 23 48 19 Q76 15 84 59 Q92 83 100 107Z" fill="#FFD700" opacity=".65"/>
+    <path d="M100 107 Q160 95 172 55 Q180 23 152 19 Q124 15 116 59 Q108 83 100 107Z" fill="#FFD700" opacity=".65"/>
+    <circle cx="100" cy="131" r="12" fill="#FFD700"/>
+  </g>
+  <text x="110" y="225" text-anchor="middle" font-family="'Baloo 2','Trebuchet MS',sans-serif" font-weight="800" font-size="52" fill="#FFD700" letter-spacing="2">LOTUS</text>
+</svg>
