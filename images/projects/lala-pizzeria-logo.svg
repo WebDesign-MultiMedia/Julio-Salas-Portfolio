@@ -1,0 +1,29 @@
+<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LALA'S Pizzeria">
+  <defs>
+    <path id="topArc" d="M36,110 A74,74 0 0 1 184,110" />
+    <path id="bottomArc" d="M38,120 A68,68 0 0 0 182,120" />
+  </defs>
+
+  <circle cx="110" cy="110" r="104" fill="#961522"/>
+  <circle cx="110" cy="110" r="104" fill="none" stroke="#d8a13a" stroke-width="4"/>
+  <circle cx="110" cy="110" r="92" fill="none" stroke="#fff8ee" stroke-width="1.5" opacity="0.5"/>
+
+  <g transform="translate(110,130) scale(0.55) translate(-100,-100)">
+    <path d="M62,68 A42,18 0 0 1 138,68 L100,160 Z" fill="#fff8ee"/>
+    <path d="M62,68 A42,18 0 0 1 138,68" fill="none" stroke="#d8a13a" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="92" cy="95" r="7" fill="#b3182a"/>
+    <circle cx="118" cy="91" r="6" fill="#b3182a"/>
+    <circle cx="103" cy="121" r="6" fill="#b3182a"/>
+    <circle cx="80" cy="118" r="5" fill="#7a0f1c"/>
+  </g>
+
+  <text font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="30" fill="#fff8ee" letter-spacing="1">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">LALA'S</textPath>
+  </text>
+  <text font-family="Inter, Arial, sans-serif" font-weight="700" font-size="12" fill="#e8bd6a" letter-spacing="3">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">PIZZERIA</textPath>
+  </text>
+
+  <circle cx="36" cy="110" r="3" fill="#d8a13a"/>
+  <circle cx="184" cy="110" r="3" fill="#d8a13a"/>
+</svg>
