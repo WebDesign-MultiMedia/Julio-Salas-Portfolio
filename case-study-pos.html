@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: POS Invoice Manager | Julio Salas</title>
+  <meta name="description" content="How Julio Salas built and runs a point-of-sale and invoicing app for a Bronx catering business: Stripe payments computed on the server, opt-in SMS, signed invoice links, and CI that blocks leaked secrets." />
+  <meta name="author" content="Julio Salas" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="canonical" href="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/case-study-pos.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a0e17%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2245%22%20font-family%3D%22monospace%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%2300d4ff%22%3E%26gt%3B_%3C%2Ftext%3E%3C%2Fsvg%3E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Julio Salas — Portfolio" />
+  <meta property="og:title" content="Case Study: POS Invoice Manager | Julio Salas" />
+  <meta property="og:description" content="How Julio Salas built and runs a point-of-sale and invoicing app for a Bronx catering business: Stripe payments computed on the server, opt-in SMS, signed invoice links, and CI that blocks leaked secrets." />
+  <meta property="og:url" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/case-study-pos.html" />
+  <meta property="og:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Auto Shop Invoicing CRM dashboard built by Julio Salas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Study: POS Invoice Manager | Julio Salas" />
+  <meta name="twitter:description" content="How Julio Salas built and runs a point-of-sale and invoicing app for a Bronx catering business: Stripe payments computed on the server, opt-in SMS, signed invoice links, and CI that blocks leaked secrets." />
+  <meta name="twitter:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" /></noscript>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav id="navbar" aria-label="Main" class="scrolled scrolled-fixed">
+      <a href="index.html" class="nav-logo" aria-label="Julio Salas, home">
+        <span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas<span class="cursor-blink" aria-hidden="true">_</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="index.html#skills">skills</a></li>
+        <li><a href="index.html#experience">experience</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="index.html#education">education</a></li>
+        <li><a href="index.html#contact" class="nav-cta">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="container">
+        <p class="page-hero-label">// case study</p>
+        <h1>POS Invoice Manager</h1>
+        <p>A point-of-sale and invoicing app that a Bronx catering business’s staff use every day for orders, invoices, card payments, and customer texts.</p>
+        <div class="cta-btns">
+          <a href="https://pos-invoice-manager.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+        <p class="cs-demo-note"><strong>No login needed:</strong> press “Try the demo” on the sign-in screen (sample data only).</p>
+      </div>
+    </div>
+
+    <div class="cs-page">
+      <div class="container cs-container">
+        <dl class="cs-facts">
+          <div><dt>Client</dt><dd>A catering business in the Bronx</dd></div>
+          <div><dt>My role</dt><dd>Solo: UI/UX, front end, serverless back end, payments, SMS, security, tests, and CI</dd></div>
+          <div><dt>Status</dt><dd>In production since August 2025</dd></div>
+          <div><dt>Stack</dt><dd>React, Vite, React Router, JavaScript, Tailwind, Node.js serverless functions, Stripe, Twilio, SheetDB, Vitest, GitHub Actions, Vercel</dd></div>
+        </dl>
+
+        <figure class="cs-shot cs-shot-lead">
+          <img src="assets/screenshots/pos-order-desktop.webp" width="1280" height="800" alt="Order form for a sample café in demo mode" fetchpriority="high" decoding="async" />
+          <figcaption>Order form (demo data)</figcaption>
+        </figure>
+
+        <section class="cs-section" aria-labelledby="cs-problem">
+          <h2 class="cs-h2" id="cs-problem">The problem</h2>
+          <p>Staff needed one place to take delivery, pick-up, and catering orders with deposits and due dates, print invoices, take card payments at the counter or against an invoice balance, and text specials to customers who signed up.</p>
+          <p>It handles real money and real phone numbers, so payment amounts, secrets, and who gets texted all had to be controlled on the server, not in the browser.</p>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-built">
+          <h2 class="cs-h2" id="cs-built">What I built</h2>
+          <ul class="fcard-points">
+            <li><strong>Orders:</strong> one form for delivery, pick-up, and catering, with deposits, due dates, and notes. A half-typed order survives a reload or an expired login.</li>
+            <li><strong>Search:</strong> find orders by phone, name, address, date, month, or year.</li>
+            <li><strong>Invoices:</strong> printable one-page invoices that subtract the deposit and earlier card payments, plus a signed read-only link for the customer.</li>
+            <li><strong>Card payments:</strong> Stripe PaymentIntents and Elements, with a tap-to-add menu for walk-up sales.</li>
+            <li><strong>Text specials:</strong> a Twilio broadcast to customers who opted in on the restaurant’s website, with the live subscriber count.</li>
+            <li><strong>Daily-use details:</strong> installable on a phone or tablet, pages that load on demand, six themes, and AA text contrast.</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-decisions">
+          <h2 class="cs-h2" id="cs-decisions">Key engineering decisions</h2>
+          <div class="cs-decisions">
+            <article class="cs-decision"><h3>The server decides what the customer pays</h3><p>The browser never sets the final amount. The server re-reads the card’s funding type from Stripe, adds the card fee only for credit cards (capped at 3%, never on debit), and computes the total itself, so a tampered request or a false “debit” claim is ignored.</p></article>
+            <article class="cs-decision"><h3>A narrow API instead of a proxy</h3><p>The browser only calls the app’s own <code>/api</code> routes. The spreadsheet endpoint accepts a short list of named actions, such as reading orders or creating one, so the browser can’t choose database paths, and updates and deletes aren’t exposed at all. The SheetDB, Stripe, and Twilio credentials exist only as server environment variables.</p></article>
+            <article class="cs-decision"><h3>CI that blocks leaked secrets</h3><p>Every push builds the app with placeholder keys, then scans the built browser bundle. The run fails if anything that looks like a Stripe secret, SheetDB URL, Twilio ID, Google Sheet link, or server variable name appears in it. It also runs <code>npm audit</code> at the high level.</p></article>
+            <article class="cs-decision"><h3>Texts only to people who opted in</h3><p>Recipients come only from sign-ups recorded by the website’s consent form. Rows typed into the sheet by hand are rejected, unsubscribed numbers are skipped, and every message names the business and says “Reply STOP to unsubscribe.” Sending needs a staff login and a confirmation of the recipient count.</p></article>
+            <article class="cs-decision"><h3>Built for a busy counter</h3><p>Buttons lock while a request runs, so a double tap can’t create two orders or two charges. An order only shows as saved after the sheet confirms it, and errors are written in plain language: offline, expired login, or server problem.</p></article>
+            <article class="cs-decision"><h3>A demo with no server access</h3><p>Demo mode runs entirely in the browser on a made-up café’s data in localStorage. A unit test fails if demo mode ever calls <code>fetch</code>, and every real API route still requires a staff session.</p></article>
+          </div>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-shots">
+          <h2 class="cs-h2" id="cs-shots">Screens</h2>
+          <div class="cs-gallery">
+            <figure class="cs-shot"><img src="assets/screenshots/pos-payment.webp" width="800" height="800" alt="Card payment screen with a tap-to-add menu of sample items and the amount due" loading="lazy" decoding="async" /><figcaption>Card payment with tap-to-add menu (demo)</figcaption></figure>
+            <figure class="cs-shot"><img src="assets/screenshots/pos-invoice.webp" width="800" height="800" alt="Printable invoice for a made-up café showing a deposit and a card payment subtracted from the balance" loading="lazy" decoding="async" /><figcaption>Printable invoice (made-up business)</figcaption></figure>
+            <figure class="cs-shot"><img src="assets/screenshots/pos-broadcast.webp" width="800" height="800" alt="Text Customers screen with a sample specials message and subscriber count, in demo mode" loading="lazy" decoding="async" /><figcaption>Text specials to opted-in customers (demo)</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-testing">
+          <h2 class="cs-h2" id="cs-testing">Testing and shipping</h2>
+          <ul class="fcard-points">
+            <li>Vitest tests with every network call mocked: the card-fee math (cap, rounding, $0 and large amounts), invoice totals with deposits, password and session checks, tampered invoice links, and that every staff API route returns 401 without a session.</li>
+            <li>GitHub Actions runs lint, tests, the build, the bundle secret scan, and a dependency audit on every push and pull request. Deploys happen on Vercel, so CI never holds a real secret.</li>
+            <li>Security headers include a strict Content-Security-Policy and block framing.</li>
+          </ul>
+        </section>
+
+        <ul class="tech-tags cs-tags" aria-label="Tech stack">
+          <li>React</li><li>Vite</li><li>JavaScript</li><li>Tailwind</li><li>Node.js serverless</li><li>Stripe</li><li>Twilio</li><li>SheetDB</li><li>Vitest</li><li>GitHub Actions</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="page-cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Next: Auto Shop Invoicing CRM</h2>
+      <p>Invoicing and customer CRM used every day by a real NYC auto repair shop.</p>
+      <div class="cta-btns">
+        <a href="case-study-crm.html" class="btn btn-primary">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="projects.html" class="btn btn-outline">All projects</a>
+        <a href="index.html#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-logo"><span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas</p>
+        <p class="footer-copy">Designed &amp; built by Julio Salas · &copy; <span data-year>2026</span></p>
+        <div class="footer-links">
+          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

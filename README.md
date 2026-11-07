@@ -10,6 +10,7 @@ Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bron
 
 - **`index.html`** — hero, summary, skills, experience, the top 4 featured projects, education, and contact.
 - **`projects.html`** — all featured projects, client websites, and more projects.
+- **`case-study-crm.html`, `case-study-pos.html`** — case studies for the two production client apps: the problem, what was built, key engineering decisions, and testing.
 
 ## Featured projects
 

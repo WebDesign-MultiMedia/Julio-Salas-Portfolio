@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Auto Shop Invoicing CRM | Julio Salas</title>
+  <meta name="description" content="How Julio Salas built a client-owned Next.js invoicing and CRM app for an NYC auto repair shop: VIN scanning, encrypted invoice links, staff login, and a safe public demo." />
+  <meta name="author" content="Julio Salas" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="canonical" href="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/case-study-crm.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a0e17%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2245%22%20font-family%3D%22monospace%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%2300d4ff%22%3E%26gt%3B_%3C%2Ftext%3E%3C%2Fsvg%3E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Julio Salas — Portfolio" />
+  <meta property="og:title" content="Case Study: Auto Shop Invoicing CRM | Julio Salas" />
+  <meta property="og:description" content="How Julio Salas built a client-owned Next.js invoicing and CRM app for an NYC auto repair shop: VIN scanning, encrypted invoice links, staff login, and a safe public demo." />
+  <meta property="og:url" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/case-study-crm.html" />
+  <meta property="og:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Auto Shop Invoicing CRM dashboard built by Julio Salas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Study: Auto Shop Invoicing CRM | Julio Salas" />
+  <meta name="twitter:description" content="How Julio Salas built a client-owned Next.js invoicing and CRM app for an NYC auto repair shop: VIN scanning, encrypted invoice links, staff login, and a safe public demo." />
+  <meta name="twitter:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" /></noscript>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav id="navbar" aria-label="Main" class="scrolled scrolled-fixed">
+      <a href="index.html" class="nav-logo" aria-label="Julio Salas, home">
+        <span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas<span class="cursor-blink" aria-hidden="true">_</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="index.html#skills">skills</a></li>
+        <li><a href="index.html#experience">experience</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="index.html#education">education</a></li>
+        <li><a href="index.html#contact" class="nav-cta">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="container">
+        <p class="page-hero-label">// case study</p>
+        <h1>Auto Shop Invoicing CRM</h1>
+        <p>A client-owned invoicing and customer CRM that an NYC auto repair shop uses at the front desk every day.</p>
+        <div class="cta-btns">
+          <a href="https://auto-shop-crm-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+        <p class="cs-demo-note"><strong>Demo login:</strong> demo@example.com / TryTheDemo2026</p>
+      </div>
+    </div>
+
+    <div class="cs-page">
+      <div class="container cs-container">
+        <dl class="cs-facts">
+          <div><dt>Client</dt><dd>An independent auto repair shop in NYC</dd></div>
+          <div><dt>My role</dt><dd>Solo: design, build, deployment, and ongoing changes</dd></div>
+          <div><dt>Status</dt><dd>In daily use by the shop’s staff</dd></div>
+          <div><dt>Stack</dt><dd>Next.js, React, JavaScript, Tailwind, D3.js, SheetDB, Resend, Vitest, GitHub Actions, Vercel</dd></div>
+        </dl>
+
+        <figure class="cs-shot cs-shot-lead">
+          <img src="assets/screenshots/crm-dashboard-desktop.webp" width="1280" height="800" alt="Dashboard with D3.js charts of weekly revenue and revenue by service type, on sample data" fetchpriority="high" decoding="async" />
+          <figcaption>Daily totals dashboard (demo data)</figcaption>
+        </figure>
+
+        <section class="cs-section" aria-labelledby="cs-problem">
+          <h2 class="cs-h2" id="cs-problem">The problem</h2>
+          <p>The shop was paying for subscription shop-management software. The owner wanted a tool the shop owns: quick receipts at the front desk, a record of every job, an easy way to get invoices to customers, and no monthly fee.</p>
+          <p>Customer names, phone numbers, and vehicles are private, so the app had to stay locked to staff while still letting a customer open their own invoice.</p>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-built">
+          <h2 class="cs-h2" id="cs-built">What I built</h2>
+          <ul class="fcard-points">
+            <li><strong>VIN scanning:</strong> staff scan the VIN barcode with the device camera (ZXing), and the app fills in the vehicle details from the NHTSA vehicle database.</li>
+            <li><strong>Receipts:</strong> customer, vehicle, mileage, services, and payment in one form, emailed automatically through Resend.</li>
+            <li><strong>Text Invoice:</strong> builds a message with a secure link and hands it to the phone’s share sheet, so the employee sends it from Messages.</li>
+            <li><strong>History and lookup:</strong> every receipt is saved to a Google Sheet through SheetDB and can be searched by customer name, car, or VIN.</li>
+            <li><strong>Dashboard:</strong> D3.js charts for revenue, average ticket, payment methods, and service mix.</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-decisions">
+          <h2 class="cs-h2" id="cs-decisions">Key engineering decisions</h2>
+          <div class="cs-decisions">
+            <article class="cs-decision"><h3>Invoice links that need no database</h3><p>Each public link is <code>/invoice/{token}</code>, where the token is the invoice reference encrypted with AES-256-GCM using a server-only secret. The token reveals no ID, name, or phone number, the same invoice always gets the same link, and nothing extra has to be stored. <em>Trade-off:</em> one link can’t be revoked by itself; rotating the secret invalidates all of them. I documented that in the README.</p></article>
+            <article class="cs-decision"><h3>Texting without an SMS provider</h3><p>Instead of paying for a texting service, the app opens the phone’s native share sheet with the message and link ready. The employee reviews it and presses Send from their own phone. Because the app can’t know whether it was sent, it never marks an invoice as “Sent” automatically.</p></article>
+            <article class="cs-decision"><h3>Two layers of login protection</h3><p>Middleware sends every request without a valid session to the login page. Every server action and data page <em>also</em> checks the session, because Next.js server actions can be called directly. Passwords are hashed with scrypt and compared in constant time; sessions are HMAC-SHA256 signed, HttpOnly cookies that expire after 12 hours. If a secret is missing, nobody can log in.</p></article>
+            <article class="cs-decision"><h3>A public demo that can’t touch real data</h3><p>The demo is a separate deployment of the same code with fake customers (555-01xx numbers, example.com emails). It refuses to start if the real sheet’s URL is configured, emails are simulated, and new invoices live only in that visitor’s session.</p></article>
+            <article class="cs-decision"><h3>Keeping customer details off public pages</h3><p>The public invoice page shows only what the emailed receipt already shows. It never displays the customer’s email or phone number, and it tells search engines not to index it.</p></article>
+          </div>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-shots">
+          <h2 class="cs-h2" id="cs-shots">Screens</h2>
+          <div class="cs-gallery">
+            <figure class="cs-shot"><img src="assets/screenshots/crm-invoice-desktop.webp" width="1280" height="800" alt="Receipt form with a Scan VIN button, quick-add services with prices, and a Recent Receipts panel with Text Invoice buttons, on sample data" loading="lazy" decoding="async" /><figcaption>Receipt form with VIN scan and Text Invoice (demo data)</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-testing">
+          <h2 class="cs-h2" id="cs-testing">Testing and shipping</h2>
+          <ul class="fcard-points">
+            <li>Vitest unit tests for password hashing, signed sessions, invoice tokens, and which routes are public.</li>
+            <li>GitHub Actions runs lint and the tests on every push and pull request.</li>
+            <li>Security headers block framing and turn off every browser permission except the camera, which the VIN scanner needs.</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" aria-labelledby="cs-next">
+          <h2 class="cs-h2" id="cs-next">What I’d improve next</h2>
+          <ul class="fcard-points">
+            <li>Move login rate limiting to a shared store. Today it’s held in memory per server instance, which slows guessing but isn’t a hard limit, and the README says so.</li>
+            <li>Add per-invoice link revocation with a small amount of storage.</li>
+          </ul>
+        </section>
+
+        <ul class="tech-tags cs-tags" aria-label="Tech stack">
+          <li>Next.js</li><li>React</li><li>JavaScript</li><li>Tailwind</li><li>D3.js</li><li>SheetDB</li><li>Resend</li><li>Vitest</li><li>GitHub Actions</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="page-cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Next: POS Invoice Manager</h2>
+      <p>Point-of-sale and invoicing app for a real Bronx catering business.</p>
+      <div class="cta-btns">
+        <a href="case-study-pos.html" class="btn btn-primary">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="projects.html" class="btn btn-outline">All projects</a>
+        <a href="index.html#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-logo"><span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas</p>
+        <p class="footer-copy">Designed &amp; built by Julio Salas · &copy; <span data-year>2026</span></p>
+        <div class="footer-links">
+          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
