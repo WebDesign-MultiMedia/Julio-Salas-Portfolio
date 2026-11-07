@@ -1087,3 +1087,10 @@ a.contact-item:hover {
   .cs-shot-lead, .cs-section { margin-bottom: 40px; }
   .cs-decision { padding: 18px; }
 }
+.cs-offer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 26px 28px;
+}
+.cs-offer .btn { margin-top: 4px; }
