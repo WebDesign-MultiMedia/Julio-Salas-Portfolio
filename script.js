@@ -1,11 +1,15 @@
 'use strict';
 
+document.documentElement.classList.add('js');
+
 /* ═══════════════════════════════════════════════════════════════
-   THREE.JS  —  PROCEDURAL 3D CODE BACKGROUND
-   Floating holographic code panels + word sprites + particles
-   Mouse moves the camera; panels gently bob and rotate.
+   THREE.JS  —  PROCEDURAL 3D CODE BACKGROUND (homepage only)
+   Floating holographic code panels + word sprites + particles.
+   Loaded after the page finishes loading, only on wider screens
+   and only when the visitor hasn't asked for reduced motion, so it
+   never blocks the content.
    ═══════════════════════════════════════════════════════════════ */
-(function initScene() {
+function initScene() {
 
   const canvas   = document.getElementById('bg-canvas');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -306,7 +310,7 @@
     'SELECT','JOIN',  'WHERE', 'GROUP BY',
     'prompt','AI',    'LLM',   'agent()',
     'React', 'Spring','MySQL', 'REST',
-    'git push','npm i','docker','CI/CD',
+    'git push','npm i','Vercel','CI/CD',
   ];
 
   const wordMeshes = [];
@@ -415,163 +419,156 @@
     renderer.render(scene, camera);
   })();
 
-})(); /* end initScene */
+} /* end initScene */
+
+(function loadScene() {
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wideScreen   = window.matchMedia('(min-width: 900px)').matches;
+  if (reduceMotion || !wideScreen) { canvas.remove(); return; }
+
+  const start = () => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+    s.async = true;
+    s.onload = () => { try { initScene(); } catch (e) { canvas.remove(); } };
+    s.onerror = () => canvas.remove();
+    document.head.appendChild(s);
+  };
+  // Start on the visitor's first mouse move / scroll / key press (or after 7s),
+  // so the scene's setup work never competes with the first paint.
+  let started = false;
+  const go = () => {
+    if (started) return;
+    started = true;
+    ['pointermove', 'scroll', 'keydown'].forEach(ev => window.removeEventListener(ev, go));
+    ('requestIdleCallback' in window) ? requestIdleCallback(start, { timeout: 1500 }) : setTimeout(start, 200);
+  };
+  ['pointermove', 'scroll', 'keydown'].forEach(ev => window.addEventListener(ev, go, { once: true, passive: true }));
+  setTimeout(go, 7000);
+})();
 
 
 /* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO UI  —  nav, burger, typewriter, observers, form
+   PORTFOLIO UI  —  shared by index.html and projects.html
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Nav scroll ──────────────────────────────────────────────── */
+/* ── Nav background on scroll ────────────────────────────────── */
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+if (navbar && !navbar.classList.contains('scrolled-fixed')) {
+  const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
 /* ── Burger menu ─────────────────────────────────────────────── */
 const burger   = document.getElementById('burger');
-const navLinks = document.querySelector('.nav-links');
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+const navLinks = document.getElementById('nav-links');
+if (burger && navLinks) {
+  const setOpen = open => {
+    navLinks.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  burger.addEventListener('click', () => setOpen(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) { setOpen(false); burger.focus(); }
+  });
+}
 
-/* ── Terminal typewriter ─────────────────────────────────────── */
+/* ── Terminal typewriter (decorative; content is always visible) ─ */
 const typedCmd = document.getElementById('typed-cmd');
-const heroInfo = document.getElementById('hero-info');
-const typeText = 'whoami --verbose';
-let ti = 0;
-heroInfo.style.display = 'none';
-
-function typeChar() {
-  if (ti < typeText.length) {
-    typedCmd.textContent += typeText[ti++];
-    setTimeout(typeChar, 75 + Math.random() * 45);
+if (typedCmd) {
+  const typeText = typedCmd.dataset.text || '';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    typedCmd.textContent = typeText;
   } else {
-    heroInfo.style.display = 'block';
+    let ti = 0;
+    (function typeChar() {
+      if (ti < typeText.length) {
+        typedCmd.textContent += typeText[ti++];
+        setTimeout(typeChar, 70 + Math.random() * 40);
+      }
+    })();
   }
 }
-setTimeout(typeChar, 700);
 
 /* ── Scroll reveal ───────────────────────────────────────────── */
-const revealEls = document.querySelectorAll(
-  '.section-label, .section-title, .about-text, .about-stats, ' +
-  '.skill-category, .project-card, .edu-card, .contact-left, .contact-form'
-);
-new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('animate-in'), i * 55);
-    }
-  });
-}, { threshold: 0.08 }).observe
-  ? (() => {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) {
-            setTimeout(() => e.target.classList.add('animate-in'), i * 55);
-          }
-        });
-      }, { threshold: 0.08 });
-      revealEls.forEach(el => obs.observe(el));
-    })()
-  : revealEls.forEach(el => el.classList.add('animate-in'));
-
-/* ── Timeline reveal ─────────────────────────────────────────── */
-document.querySelectorAll('.timeline-item').forEach((item, idx) => {
-  const obs = new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) {
-      setTimeout(() => item.classList.add('visible'), idx * 120);
-      obs.unobserve(item);
-    }
-  }, { threshold: 0.15 });
-  obs.observe(item);
-});
-
-/* ── Active nav link on scroll ───────────────────────────────── */
-const sections   = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navAnchors.forEach(a => a.classList.remove('active'));
-      const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-      if (a) a.classList.add('active');
-    }
-  });
-}, { rootMargin: '-40% 0px -55% 0px' }).observe
-  ? (() => {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            navAnchors.forEach(a => a.classList.remove('active'));
-            const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-            if (a) a.classList.add('active');
-          }
-        });
-      }, { rootMargin: '-40% 0px -55% 0px' });
-      sections.forEach(s => obs.observe(s));
-    })()
-  : null;
-
-/* ── Contact form — Formspree ─────────────────────────────────── */
-const form       = document.getElementById('contact-form');
-const btnText    = document.getElementById('btn-text');
-const btnSending = document.getElementById('btn-sending');
-const formOk     = document.getElementById('form-success');
-
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  const name    = form.name.value.trim();
-  const email   = form.email.value.trim();
-  const message = form.message.value.trim();
-  if (!name || !email || !message) return;
-
-  btnText.classList.add('hidden');
-  btnSending.classList.remove('hidden');
-
-  try {
-    const res = await fetch('https://formspree.io/f/mykqpoao', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body:    JSON.stringify({ name, email, message }),
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        revealObs.unobserve(entry.target);
+      }
     });
-
-    if (res.ok) {
-      formOk.classList.remove('hidden');
-      form.reset();
-      setTimeout(() => formOk.classList.add('hidden'), 6000);
-    } else {
-      const data = await res.json().catch(() => ({}));
-      alert(data?.errors?.[0]?.message || 'Something went wrong — please try again.');
-    }
-  } catch {
-    alert('Network error — please check your connection and try again.');
-  } finally {
-    btnText.classList.remove('hidden');
-    btnSending.classList.add('hidden');
-  }
-});
-
-/* ── Stat counter animation ──────────────────────────────────── */
-function countUp(el) {
-  const raw    = el.textContent;
-  const suffix = raw.replace(/[0-9]/g, '');
-  const target = parseInt(raw, 10);
-  const start  = performance.now();
-  const dur    = 1200;
-  (function step(now) {
-    const ease = 1 - Math.pow(1 - Math.min((now - start) / dur, 1), 3);
-    el.textContent = Math.floor(ease * target) + suffix;
-    if (ease < 1) requestAnimationFrame(step);
-  })(start);
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('animate-in'));
 }
 
-const countObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { countUp(e.target); countObs.unobserve(e.target); }
+/* ── Active nav link on scroll (homepage sections) ───────────── */
+const sections = document.querySelectorAll('main section[id]');
+if (navLinks && sections.length && 'IntersectionObserver' in window) {
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.querySelectorAll('a.active').forEach(a => a.classList.remove('active'));
+      const a = navLinks.querySelector(`a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => navObs.observe(s));
+}
+
+/* ── Project count (computed from the cards on the page) ─────── */
+document.querySelectorAll('[data-project-count]').forEach(el => {
+  const n = document.querySelectorAll('.fcard, .site-card').length;
+  if (n) el.textContent = `${n} projects`;
+});
+
+/* ── Footer year ─────────────────────────────────────────────── */
+document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+/* ── Contact form — Formspree ─────────────────────────────────── */
+const form = document.getElementById('contact-form');
+if (form) {
+  const btn    = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+  const show = (msg, kind) => { status.textContent = msg; status.className = `form-status ${kind}`; };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name    = form.name.value.trim();
+    const email   = form.email.value.trim();
+    const message = form.message.value.trim();
+    if (!name || !email || !message) { show('Please fill in your name, email, and message.', 'err'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    show('', '');
+    try {
+      const res = await fetch('https://formspree.io/f/mykqpoao', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify({ name, email, message }),
+      });
+      if (res.ok) {
+        show("Message sent! I'll be in touch soon.", 'ok');
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        show(data?.errors?.[0]?.message || 'Something went wrong. Please email me directly.', 'err');
+      }
+    } catch {
+      show('Network error. Please check your connection or email me directly.', 'err');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
   });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-num').forEach(el => countObs.observe(el));
+}

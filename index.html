@@ -3,488 +3,531 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Julio Salas | AI Prompt Engineer & Full Stack Developer</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Julio Salas | Full Stack &amp; AI Engineer — React, Next.js, TypeScript, LLMs</title>
+  <meta name="description" content="Julio Salas is a Full Stack &amp; AI Engineer in New York who builds production web apps and AI features for real businesses with React, Next.js, TypeScript, and LLMs." />
+  <meta name="author" content="Julio Salas" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="canonical" href="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a0e17%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2245%22%20font-family%3D%22monospace%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%2300d4ff%22%3E%26gt%3B_%3C%2Ftext%3E%3C%2Fsvg%3E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Julio Salas — Portfolio" />
+  <meta property="og:title" content="Julio Salas | Full Stack &amp; AI Engineer — React, Next.js, TypeScript, LLMs" />
+  <meta property="og:description" content="Julio Salas is a Full Stack &amp; AI Engineer in New York who builds production web apps and AI features for real businesses with React, Next.js, TypeScript, and LLMs." />
+  <meta property="og:url" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/" />
+  <meta property="og:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Auto Shop Invoicing CRM dashboard built by Julio Salas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Julio Salas | Full Stack &amp; AI Engineer — React, Next.js, TypeScript, LLMs" />
+  <meta name="twitter:description" content="Julio Salas is a Full Stack &amp; AI Engineer in New York who builds production web apps and AI features for real businesses with React, Next.js, TypeScript, and LLMs." />
+  <meta name="twitter:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" /></noscript>
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Julio Salas",
+    "jobTitle": "Full Stack & AI Engineer",
+    "url": "https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Bronx", "addressRegion": "NY", "addressCountry": "US" },
+    "knowsLanguage": ["English", "Spanish"],
+    "sameAs": ["https://github.com/WebDesign-MultiMedia", "https://www.linkedin.com/in/julio-salas-webdeveloper/"]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- 3D PROCEDURAL BACKGROUND (Three.js WebGL) -->
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-logo">
-      <span class="prompt-char">&gt;</span> julio_salas<span class="cursor-blink">_</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about">about</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#experience">experience</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="projects.html">portfolio</a></li>
-      <li><a href="#education">education</a></li>
-      <li><a href="#contact" class="nav-cta">contact</a></li>
-    </ul>
-    <button class="burger" id="burger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="terminal-window">
-        <div class="terminal-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="terminal-title">~/portfolio — bash</span>
-        </div>
-        <div class="terminal-body">
-          <p class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd" id="typed-cmd"></span></p>
-          <div class="hero-info" id="hero-info">
-            <h1 class="hero-name">Julio Salas</h1>
-            <h2 class="hero-title">AI Prompt Engineer <span class="divider">//</span> Full Stack Developer</h2>
-            <p class="hero-location">
-              <span class="tag">📍</span> The Bronx, NY
-              &nbsp;&nbsp;<span class="tag">📧</span> Jsalas198016@gmail.com
-              &nbsp;&nbsp;<span class="tag">📧</span> webdesignmultimediany@gmail.com <br>
-              &nbsp;&nbsp;<span class="tag">📞</span> (929) 246-3822
-            </p>
+  <header>
+    <nav id="navbar" aria-label="Main">
+      <a href="#hero" class="nav-logo" aria-label="Julio Salas, home">
+        <span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas<span class="cursor-blink" aria-hidden="true">_</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="#education">education</a></li>
+        <li><a href="#contact" class="nav-cta">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="hero-name">
+      <div class="hero-content">
+        <div class="terminal-window">
+          <div class="terminal-bar" aria-hidden="true">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">~/portfolio — bash</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-line" aria-hidden="true"><span class="t-prompt">$</span> <span class="t-cmd" id="typed-cmd" data-text="whoami --verbose"></span><span class="cursor-blink">▌</span></p>
+            <h1 class="hero-name" id="hero-name">Julio Salas</h1>
+            <p class="hero-title">Full Stack &amp; AI Engineer</p>
+            <p class="hero-tagline">I build production web apps and AI features for real businesses — React, Next.js, TypeScript, and LLMs.</p>
+            <p class="hero-location">📍 The Bronx, New York<span class="sep" aria-hidden="true">//</span>English &amp; Spanish</p>
             <div class="hero-links">
-              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="btn btn-outline">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" class="btn btn-outline">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                LinkedIn
-              </a>
-              <a href="#contact" class="btn btn-primary">Hire Me</a>
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="assets/Julio_Salas_Resume.pdf" class="btn btn-outline" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Resume</a>
+              <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-label">// 01 — about</div>
-      <h2 class="section-title">Professional Summary</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            AI Prompt Engineer and Full Stack Developer with hands-on experience designing, testing, and optimizing prompts for Large Language Models including <span class="highlight">ChatGPT</span>, <span class="highlight">Google Gemini</span>, and <span class="highlight">GitHub Copilot</span>.
-          </p>
-          <p>
-            Completed an AI engineering apprenticeship at <span class="highlight">Accenture</span>, contributing to enterprise Salesforce and Agentforce workflows for a major utility client. Skilled at translating complex business requirements into structured AI instructions, working with cross-functional teams, and driving continuous improvement through iterative testing.
-          </p>
-          <p>
-            Comfortable working independently in fast-paced, evolving environments with a solid foundation in full stack development and Agile delivery.
-          </p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <span class="stat-num">3+</span>
-            <span class="stat-label">Years Experience</span>
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <p class="section-label">// 01 — about</p>
+        <h2 class="section-title" id="about-title">Professional Summary</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>I’m a full stack and AI engineer in the Bronx. Since August 2025 I’ve worked as a freelancer, building and running the <span class="highlight">production apps NYC small businesses use every day</span> — invoicing, point-of-sale, payments, and online ordering.</p>
+            <p>Before that, as an AI Prompt Engineer Apprentice at <span class="highlight">Accenture</span>, I designed, tested, and debugged agentic AI workflows in Salesforce Agentforce for <span class="highlight">Con Edison</span>.</p>
+            <p>My background is full stack — React, Java/Spring Boot, REST APIs, and MySQL at PeopleShores — and I’m bilingual in English and Spanish.</p>
           </div>
-          <div class="stat-card">
-            <span class="stat-num">3</span>
-            <span class="stat-label">LLMs Mastered</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">5+</span>
-            <span class="stat-label">Tech Stacks</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">2</span>
-            <span class="stat-label">Certifications</span>
-          </div>
+          <dl class="about-facts reveal">
+            <div><dt>Focus</dt><dd>Full Stack · Front-End · AI Engineering</dd></div>
+            <div><dt>Core stack</dt><dd>React, Next.js, TypeScript, Node.js</dd></div>
+            <div><dt>AI</dt><dd>LLM apps, RAG, agents</dd></div>
+            <div><dt>Location</dt><dd>New York (Bronx) — hybrid or remote</dd></div>
+            <div><dt>Languages</dt><dd>English, Spanish</dd></div>
+          </dl>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <div class="section-label">// 02 — skills</div>
-      <h2 class="section-title">Core Competencies</h2>
-      <div class="skills-grid">
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="section-label">// 02 — skills</p>
+        <h2 class="section-title" id="skills-title">Skills</h2>
+        <div class="skills-grid">
 
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-icon">🤖</span>
-            <h3>AI & Prompting</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag ai">Prompt Design & Optimization</span>
-            <span class="skill-tag ai">Prompt Iteration</span>
-            <span class="skill-tag ai">LLM Output Testing</span>
-            <span class="skill-tag ai">Human-in-the-Loop Review</span>
-            <span class="skill-tag ai">AI-Assisted Development</span>
-            <span class="skill-tag ai">Model Behavior Debugging</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-icon">🛠</span>
-            <h3>AI Tools & CRM</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag tool">ChatGPT</span>
-            <span class="skill-tag tool">Google Gemini</span>
-            <span class="skill-tag tool">GitHub Copilot</span>
-            <span class="skill-tag tool">Salesforce</span>
-            <span class="skill-tag tool">Agentforce</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-icon">🎨</span>
-            <h3>Frontend</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag frontend">React.js</span>
-            <span class="skill-tag frontend">JavaScript (ES6+)</span>
-            <span class="skill-tag frontend">HTML5</span>
-            <span class="skill-tag frontend">CSS3</span>
-            <span class="skill-tag frontend">Tailwind CSS</span>
-            <span class="skill-tag frontend">Bootstrap</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-icon">⚙️</span>
-            <h3>Backend & Data</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag backend">Java</span>
-            <span class="skill-tag backend">Spring Boot</span>
-            <span class="skill-tag backend">MySQL</span>
-            <span class="skill-tag backend">REST APIs</span>
-            <span class="skill-tag backend">Postman</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-icon">🔄</span>
-            <h3>Workflow</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag workflow">Git</span>
-            <span class="skill-tag workflow">GitHub</span>
-            <span class="skill-tag workflow">Agile/Scrum</span>
-            <span class="skill-tag workflow">Sprint Planning</span>
-            <span class="skill-tag workflow">Code Reviews</span>
-            <span class="skill-tag workflow">Technical Documentation</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-label">// 03 — experience</div>
-      <h2 class="section-title">Work Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item" data-index="0">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div>
-                <h3 class="job-title">AI Prompt Engineer Apprentice</h3>
-                <p class="job-company">Accenture <span class="job-location">— New York, NY</span></p>
-              </div>
-              <span class="job-date">Oct 2024 – Oct 2025</span>
+          <div class="skill-category reveal">
+            <div class="skill-cat-header">
+              <span class="skill-icon" aria-hidden="true">🎨</span>
+              <h3>Front-End</h3>
             </div>
-            <ul class="job-bullets">
-              <li>Designed and refined structured prompts to extract, route, and automate business requirements within Salesforce and Agentforce workflows for a major utility client, reducing manual handoffs and improving output consistency.</li>
-              <li>Collaborated with cross-functional teams to configure, test, and debug AI agent tasks inside Agentforce, translating client business logic into reliable, repeatable AI-driven actions.</li>
-              <li>Applied iterative LLM output testing and human-in-the-loop review practices to validate agent behavior against compliance and business requirements before production deployment.</li>
-              <li>Developed prompt frameworks and technical documentation to support team onboarding to AI-assisted workflows.</li>
+            <ul class="skill-tags">
+              <li class="skill-tag frontend">React</li>
+              <li class="skill-tag frontend">Next.js</li>
+              <li class="skill-tag frontend">TypeScript</li>
+              <li class="skill-tag frontend">JavaScript</li>
+              <li class="skill-tag frontend">HTML/CSS</li>
+              <li class="skill-tag frontend">Tailwind</li>
+              <li class="skill-tag frontend">Vite</li>
+              <li class="skill-tag frontend">D3.js</li>
             </ul>
-            <div class="job-tags">
-              <span>Prompt Engineering</span>
-              <span>Salesforce</span>
-              <span>Agentforce</span>
-              <span>LLM Testing</span>
-              <span>ChatGPT</span>
-            </div>
           </div>
-        </div>
 
-        <div class="timeline-item" data-index="1">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div>
-                <h3 class="job-title">Full Stack Developer</h3>
-                <p class="job-company">PeopleShores <span class="job-location">— Bronx, NY</span></p>
-              </div>
-              <span class="job-date">Apr 2024 – Oct 2024</span>
+          <div class="skill-category reveal">
+            <div class="skill-cat-header">
+              <span class="skill-icon" aria-hidden="true">⚙️</span>
+              <h3>Back-End &amp; APIs</h3>
             </div>
-            <ul class="job-bullets">
-              <li>Built and deployed full stack web applications using React and JavaScript on the frontend and Java with Spring Boot on the backend, delivering scalable, functional solutions.</li>
-              <li>Designed and implemented RESTful APIs, integrated MySQL databases, and used Postman to test and validate endpoints throughout the development lifecycle.</li>
-              <li>Participated in full Agile sprint cycles, attending standups, performing peer code reviews, resolving bugs, and shipping feature enhancements on schedule.</li>
-              <li>Styled responsive UIs using HTML, CSS, and component-based design patterns, improving cross-device compatibility and user experience.</li>
-              <li>Used ChatGPT, Gemini, and GitHub Copilot to iteratively refine prompts, converting plain-language goals into precise technical instructions.</li>
+            <ul class="skill-tags">
+              <li class="skill-tag backend">Node.js serverless functions</li>
+              <li class="skill-tag backend">Java</li>
+              <li class="skill-tag backend">Spring Boot</li>
+              <li class="skill-tag backend">REST APIs</li>
+              <li class="skill-tag backend">MySQL</li>
+              <li class="skill-tag backend">SheetDB</li>
             </ul>
-            <div class="job-tags">
-              <span>React.js</span>
-              <span>Java</span>
-              <span>Spring Boot</span>
-              <span>MySQL</span>
-              <span>REST APIs</span>
-              <span>Agile</span>
-            </div>
           </div>
-        </div>
 
-        <div class="timeline-item" data-index="2">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div>
-                <h3 class="job-title">Digital Communication Specialist</h3>
-                <p class="job-company">NYC Department of Social Services (DSS/HRA) <span class="job-location">— New York, NY</span></p>
-              </div>
-              <span class="job-date">Jan 2022 – Jun 2023</span>
+          <div class="skill-category reveal">
+            <div class="skill-cat-header">
+              <span class="skill-icon" aria-hidden="true">🤖</span>
+              <h3>AI &amp; LLMs</h3>
             </div>
-            <ul class="job-bullets">
-              <li>Maintained and updated public-facing agency web pages using HTML and CSS, ensuring content remained accurate, accessible, and consistent across platforms.</li>
-              <li>Processed data load requests, reconciled data conflicts, and produced Excel-based extracts and reports, developing strong attention to detail and structured data handling skills.</li>
-              <li>Collaborated with internal teams to coordinate content updates, streamline digital publishing workflows, and support documentation and communication priorities.</li>
+            <ul class="skill-tags">
+              <li class="skill-tag ai">OpenAI API</li>
+              <li class="skill-tag ai">Vercel AI SDK</li>
+              <li class="skill-tag ai">LangChain.js</li>
+              <li class="skill-tag ai">RAG</li>
+              <li class="skill-tag ai">Embeddings</li>
+              <li class="skill-tag ai">AstraDB</li>
+              <li class="skill-tag ai">Salesforce Agentforce</li>
+              <li class="skill-tag ai">Prompt engineering</li>
+              <li class="skill-tag ai">Claude Code</li>
+              <li class="skill-tag ai">GitHub Copilot</li>
             </ul>
-            <div class="job-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Data Processing</span>
-              <span>Documentation</span>
+          </div>
+
+          <div class="skill-category reveal">
+            <div class="skill-cat-header">
+              <span class="skill-icon" aria-hidden="true">💳</span>
+              <h3>Payments &amp; Integrations</h3>
+            </div>
+            <ul class="skill-tags">
+              <li class="skill-tag tool">Stripe</li>
+              <li class="skill-tag tool">Resend</li>
+              <li class="skill-tag tool">Twilio</li>
+            </ul>
+          </div>
+
+          <div class="skill-category reveal">
+            <div class="skill-cat-header">
+              <span class="skill-icon" aria-hidden="true">🔄</span>
+              <h3>DevOps &amp; Testing</h3>
+            </div>
+            <ul class="skill-tags">
+              <li class="skill-tag workflow">Git</li>
+              <li class="skill-tag workflow">GitHub Actions</li>
+              <li class="skill-tag workflow">Vitest</li>
+              <li class="skill-tag workflow">Vercel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <p class="section-label">// 03 — experience</p>
+        <h2 class="section-title" id="experience-title">Work Experience</h2>
+        <ol class="timeline">
+
+          <li class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="job-title">Freelance Full Stack Engineer</h3>
+                  <p class="job-company">Self-employed <span class="job-location">— New York, NY</span></p>
+                </div>
+                <p class="job-date">Aug 2025 – Present</p>
+              </div>
+              <ul class="job-bullets">
+                <li>Built and maintain a Next.js invoicing and CRM app used daily by an NYC auto repair shop, with scrypt-based staff login, signed sessions, encrypted public invoice links, and D3.js revenue dashboards.</li>
+                <li>Built a React + Vite point-of-sale and invoicing system for a Bronx catering business, in production since August 2025, with server-side Stripe payments, printable invoices, and opt-in Twilio SMS broadcasts.</li>
+                <li>Built a bilingual bakery website with a holiday pre-order flow: Stripe Checkout deposits validated on the server, a signature-verified webhook, and Resend email receipts.</li>
+              </ul>
+              <ul class="job-tags" aria-label="Skills used">
+                <li><span>Next.js</span></li><li><span>React</span></li><li><span>Stripe</span></li><li><span>Twilio</span></li><li><span>Resend</span></li><li><span>Vercel</span></li><li><span>GitHub Actions</span></li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="job-title">AI Prompt Engineer Apprentice</h3>
+                  <p class="job-company">Accenture <span class="job-location">— New York, NY</span></p>
+                </div>
+                <p class="job-date">Oct 2024 – Oct 2025</p>
+              </div>
+              <ul class="job-bullets">
+                <li>Designed, tested, and debugged AI agent workflows in Salesforce Agentforce for Con Edison.</li>
+                <li>Reviewed agent outputs with a human-in-the-loop process to check agent behavior against business requirements.</li>
+                <li>Documented agent workflows and prompts for the team.</li>
+              </ul>
+              <ul class="job-tags" aria-label="Skills used">
+                <li><span>Salesforce Agentforce</span></li><li><span>Prompt engineering</span></li><li><span>Human-in-the-loop review</span></li><li><span>Documentation</span></li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="job-title">Full Stack Developer</h3>
+                  <p class="job-company">PeopleShores <span class="job-location">— Bronx, NY</span></p>
+                </div>
+                <p class="job-date">Apr 2024 – Oct 2024</p>
+              </div>
+              <ul class="job-bullets">
+                <li>Built full stack web application features with React on the front end and Java/Spring Boot on the back end.</li>
+                <li>Designed and implemented REST APIs backed by MySQL.</li>
+                <li>Worked in Agile sprints as part of a development team.</li>
+              </ul>
+              <ul class="job-tags" aria-label="Skills used">
+                <li><span>React</span></li><li><span>Java</span></li><li><span>Spring Boot</span></li><li><span>REST APIs</span></li><li><span>MySQL</span></li><li><span>Agile</span></li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="job-title">Digital Communication Specialist</h3>
+                  <p class="job-company">NYC Department of Social Services (DSS/HRA) <span class="job-location">— New York, NY</span></p>
+                </div>
+                <p class="job-date">Jan 2022 – Jun 2023</p>
+              </div>
+              <ul class="job-bullets">
+                <li>Maintained and updated public-facing agency web pages in HTML and CSS.</li>
+              </ul>
+              <ul class="job-tags" aria-label="Skills used">
+                <li><span>HTML</span></li><li><span>CSS</span></li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section-alt" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="section-label">// 04 — projects</p>
+        <h2 class="section-title" id="projects-title">Featured Projects</h2>
+        <p class="section-intro">Production apps I built and run for real clients, plus an AI project. Every demo runs on sample data.</p>
+        <div class="featured-list">
+
+        <article class="fcard reveal" id="project-crm" aria-labelledby="title-crm">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/crm-dashboard-desktop.webp" width="1280" height="800" alt="Auto Shop CRM demo dashboard with D3.js charts of weekly revenue and revenue by service type, on sample data" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/crm-dashboard-mobile.webp" width="390" height="844" alt="Auto Shop CRM demo dashboard on a phone, with bottom navigation" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <a href="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="Auto Shop Invoicing CRM CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-crm">Auto Shop Invoicing CRM</h3>
+            <p class="fcard-what">Invoicing and customer CRM used every day by a real NYC auto repair shop.</p>
+            <ul class="fcard-points">
+              <li>Staff login with scrypt-hashed passwords and signed sessions; public invoice links are AES-256-GCM encrypted.</li>
+              <li>D3.js dashboards for weekly revenue, service mix, and payment methods, plus a camera VIN scanner.</li>
+              <li>Separate public demo running on fake data, with Vitest tests and a GitHub Actions CI pipeline.</li>
+            </ul>
+            <p class="fcard-note"><strong>Demo login:</strong> demo@example.com / TryTheDemo2026</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>Next.js</li><li>React</li><li>JavaScript</li><li>Tailwind</li><li>D3.js</li><li>SheetDB</li><li>Resend</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://auto-shop-crm-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-nycgpt" aria-labelledby="title-nycgpt">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/nyc-gpt-desktop.webp" width="1280" height="800" alt="NYC GPT chat screen with suggested questions for each borough and a message box" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/nyc-gpt-mobile.webp" width="390" height="844" alt="NYC GPT chat screen on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-ai">AI / LLM</span>
+            <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="NYC GPT — RAG Chatbot CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/RAG-chatbot/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-nycgpt">NYC GPT — RAG Chatbot</h3>
+            <p class="fcard-what">A streaming AI chatbot that answers questions about New York City, grounded in retrieved Wikipedia sources.</p>
+            <ul class="fcard-points">
+              <li>RAG pipeline: scrape pages → chunk with LangChain.js → embed with OpenAI → AstraDB vector search → grounded GPT answer.</li>
+              <li>Answers stream token by token to the chat UI using the Vercel AI SDK.</li>
+              <li>Per-IP rate limiting plus message-length, history, and response-token caps to keep API cost bounded.</li>
+            </ul>
+            
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>Next.js</li><li>TypeScript</li><li>React</li><li>Vercel AI SDK</li><li>LangChain.js</li><li>OpenAI API</li><li>Embeddings</li><li>AstraDB</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://nyc-gpt.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-pos" aria-labelledby="title-pos">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/pos-order-desktop.webp" width="1280" height="800" alt="POS Invoice Manager in demo mode showing the customer order form for a sample café" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/pos-order-mobile.webp" width="390" height="844" alt="POS Invoice Manager demo order form on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <span class="badge badge-prod">In production since Aug 2025</span>
+            <a href="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="POS Invoice Manager CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-pos">POS Invoice Manager</h3>
+            <p class="fcard-what">Point-of-sale and invoicing app for a real Bronx catering business.</p>
+            <ul class="fcard-points">
+              <li>Stripe card payments with the amount and credit-card surcharge computed on the server, not trusted from the browser.</li>
+              <li>Staff login, signed read-only invoice links, and printable invoices.</li>
+              <li>SMS specials broadcast through Twilio, sent only to customers who opted in.</li>
+            </ul>
+            <p class="fcard-note"><strong>No login needed:</strong> press “Try the demo” on the sign-in screen (sample data only).</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>React</li><li>Vite</li><li>JavaScript</li><li>Tailwind</li><li>Node.js serverless</li><li>Stripe</li><li>Twilio</li><li>SheetDB</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://pos-invoice-manager.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-sulys" aria-labelledby="title-sulys">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/sulys-sweets-desktop.webp" width="1280" height="800" alt="Suly’s Sweets homepage with the headline “Cakes made for your celebration” and an English/Spanish toggle" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/sulys-sweets-mobile.webp" width="390" height="844" alt="Suly’s Sweets homepage on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <a href="https://github.com/WebDesign-MultiMedia/SulysSweets/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="Suly’s Sweets CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/SulysSweets/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-sulys">Suly’s Sweets</h3>
+            <p class="fcard-what">Bilingual (English/Spanish) bakery website and holiday pre-order system for a Bronx home bakery.</p>
+            <ul class="fcard-points">
+              <li>Stripe Checkout for 50% deposits, with every price recomputed on the server from the product catalog.</li>
+              <li>Signature-verified Stripe webhook that sends email receipts through Resend.</li>
+              <li>Lighthouse-optimized, with Vitest tests (including an English/Spanish translation check) and CI.</li>
+            </ul>
+            <p class="fcard-note"><strong>Try it:</strong> holiday checkout runs in Stripe test mode.</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>React</li><li>Vite</li><li>JavaScript</li><li>Tailwind</li><li>Node.js serverless</li><li>Stripe</li><li>Resend</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://sulys-sweets.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Site<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/SulysSweets" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        </div>
+        <div class="more-projects">
+          <a href="projects.html" class="btn btn-outline">See all projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="container">
+        <p class="section-label">// 05 — education</p>
+        <h2 class="section-title" id="education-title">Education</h2>
+        <div class="education-grid">
+          <div class="edu-card reveal">
+            <div class="edu-icon" aria-hidden="true">🎓</div>
+            <div class="edu-content">
+              <h3>Associate in Information Technology</h3>
+              <p class="edu-school">Guttman Community College</p>
+              <p class="edu-location">New York, NY</p>
+              <span class="edu-date">Feb 2023</span>
+            </div>
+          </div>
+          <div class="edu-card reveal">
+            <div class="edu-icon" aria-hidden="true">🔐</div>
+            <div class="edu-content">
+              <h3>Certificate in Cybersecurity</h3>
+              <p class="edu-school">Per Scholas</p>
+              <p class="edu-location">New York, NY</p>
+              <span class="edu-date">Dec 2023</span>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section section-alt">
-    <div class="container">
-      <div class="section-label">// 04 — projects</div>
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card featured">
-          <div class="project-card-header">
-            <div class="project-icons">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
-              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="ext-link" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="section-label">// 06 — contact</p>
+        <h2 class="section-title" id="contact-title">Get In Touch</h2>
+        <div class="contact-wrapper">
+          <div class="contact-left reveal">
+            <p class="open-to"><strong>Open to:</strong> Full Stack, Front-End, and AI Engineer roles — NYC hybrid or remote.</p>
+            <p class="contact-intro">Hiring? Email me directly. Need a website or web app for your business? Use my freelance email.</p>
+            <div class="contact-details">
+              <a href="mailto:jsalas198016@gmail.com" class="contact-item">
+                <span class="contact-icon" aria-hidden="true">📧</span>
+                <span><small>Jobs &amp; roles</small>jsalas198016@gmail.com</span>
               </a>
-            </div>
-            <span class="featured-badge">Featured</span>
-          </div>
-          <h3 class="project-title">V-Tracker</h3>
-          <p class="project-subtitle">Full Stack Web Application</p>
-          <p class="project-desc">
-            Vehicle maintenance tracking system with data reporting and visualization. Built with a React.js frontend, Java/Spring Boot backend, MySQL database, and Google Sheets API integration. Applied prompt engineering throughout development using ChatGPT and Gemini to convert product requirements into actionable technical instructions.
-          </p>
-          <div class="project-tech">
-            <span>React.js</span>
-            <span>Tailwind CSS</span>
-            <span>Java</span>
-            <span>MySQL</span>
-            <span>Google Sheets API</span>
-            <span>Prompt Engineering</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-icons">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
-              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="ext-link" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <a href="mailto:webdesignmultimediany@gmail.com" class="contact-item">
+                <span class="contact-icon" aria-hidden="true">🛠</span>
+                <span><small>Freelance &amp; website projects</small>webdesignmultimediany@gmail.com</span>
               </a>
-            </div>
-          </div>
-          <h3 class="project-title">Agentforce Prompt Frameworks</h3>
-          <p class="project-subtitle">Enterprise AI Workflow</p>
-          <p class="project-desc">
-            Designed reusable prompt frameworks for Salesforce Agentforce workflows at a major utility enterprise client. Enabled reliable AI-driven automation and reduced manual handoffs across CRM processes.
-          </p>
-          <div class="project-tech">
-            <span>Salesforce</span>
-            <span>Agentforce</span>
-            <span>Prompt Engineering</span>
-            <span>LLM Testing</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-icons">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
-              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="ext-link" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <a href="tel:+19292463822" class="contact-item">
+                <span class="contact-icon" aria-hidden="true">📞</span>
+                <span><small>Phone</small>(929) 246-3822</span>
               </a>
+              <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <span class="contact-icon" aria-hidden="true">💼</span>
+                <span><small>LinkedIn</small>linkedin.com/in/julio-salas-webdeveloper<span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <span class="contact-icon" aria-hidden="true">🐙</span>
+                <span><small>GitHub</small>github.com/WebDesign-MultiMedia<span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">📍</span>
+                <span><small>Location</small>The Bronx, New York</span>
+              </div>
             </div>
           </div>
-          <h3 class="project-title">REST API Platform</h3>
-          <p class="project-subtitle">Full Stack Application</p>
-          <p class="project-desc">
-            Designed and implemented scalable RESTful API systems with Spring Boot, validated via Postman and connected to MySQL with full CRUD operations. Delivered as part of Agile sprint cycles at PeopleShores.
-          </p>
-          <div class="project-tech">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>MySQL</span>
-            <span>Postman</span>
-            <span>REST APIs</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="more-projects">
-        <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="btn btn-outline">
-          View All on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="section">
-    <div class="container">
-      <div class="section-label">// 05 — education</div>
-      <h2 class="section-title">Education</h2>
-      <div class="education-grid">
-
-        <div class="edu-card">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-content">
-            <h3>Associates in Information Technology</h3>
-            <p class="edu-school">Guttman Community College</p>
-            <p class="edu-location">New York, NY</p>
-            <span class="edu-date">Feb 2023</span>
-          </div>
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-icon">🔐</div>
-          <div class="edu-content">
-            <h3>Certificate in Cybersecurity</h3>
-            <p class="edu-school">Per Scholas</p>
-            <p class="edu-location">New York, NY</p>
-            <span class="edu-date">Dec 2023</span>
-          </div>
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-icon">🤖</div>
-          <div class="edu-content">
-            <h3>AI Engineering Apprenticeship</h3>
-            <p class="edu-school">Accenture</p>
-            <p class="edu-location">New York, NY</p>
-            <span class="edu-date">Oct 2024 – Oct 2025</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section section-alt">
-    <div class="container">
-      <div class="section-label">// 06 — contact</div>
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-wrapper">
-        <div class="contact-left">
-          <p class="contact-intro">
-            I'm open to new opportunities — whether it's a full-time role, contract work, or an interesting collaboration. Drop me a message and I'll get back to you.
-          </p>
-          <div class="contact-details">
-            <a href="mailto:Jsalas198016@gmail.com" class="contact-item">
-              <span class="contact-icon">📧</span>
-              <span>Jsalas198016@gmail.com</span>
-            </a>
-            <a href="tel:9292463822" class="contact-item">
-              <span class="contact-icon">📞</span>
-              <span>(929) 246-3822</span>
-            </a>
-            <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" class="contact-item">
-              <span class="contact-icon">💼</span>
-              <span>linkedin.com/in/julio-salas-webdeveloper</span>
-            </a>
-            <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="contact-item">
-              <span class="contact-icon">🐙</span>
-              <span>github.com/WebDesign-MultiMedia</span>
-            </a>
-            <div class="contact-item">
-              <span class="contact-icon">📍</span>
-              <span>The Bronx, NY</span>
+          <form class="contact-form reveal" id="contact-form" novalidate aria-labelledby="form-title">
+            <h3 class="form-title" id="form-title">Send a message</h3>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required />
             </div>
-          </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about the role or project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">Send Message</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
-        <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
-            <span id="btn-text">Send Message</span>
-            <span id="btn-sending" class="hidden">Sending...</span>
-          </button>
-          <p id="form-success" class="form-success hidden">Message sent! I'll be in touch soon.</p>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p class="footer-logo"><span class="prompt-char">&gt;</span> julio_salas</p>
-        <p class="footer-copy">Designed &amp; Built by Julio Salas · 2025</p>
+        <p class="footer-logo"><span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas</p>
+        <p class="footer-copy">Designed &amp; built by Julio Salas · &copy; <span data-year>2026</span></p>
         <div class="footer-links">
-          <a href="https://github.com/WebDesign-MultiMedia" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

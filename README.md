@@ -1,112 +1,56 @@
 # Julio Salas — Developer Portfolio
 
-Personal portfolio website for **Julio Salas**, AI Prompt Engineer and Full Stack Developer based in The Bronx, NY. Built as a fully static, zero-dependency site using pure HTML, CSS, and JavaScript — no frameworks, no build step.
+Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bronx). It showcases production apps built for real NYC small businesses, an AI/RAG project, client websites, work experience, and contact info.
 
-Live sections: About · Skills · Work Experience · Projects · Education · Contact
+**Live:** https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/
 
-Live: https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/
+![Auto Shop Invoicing CRM demo dashboard, one of the featured projects](assets/og-image.jpg)
 
----
+## Pages
 
-## Features
+- **`index.html`** — hero, summary, skills, experience, the top 4 featured projects, education, and contact.
+- **`projects.html`** — all featured projects, client websites, and more projects.
 
-- **3D Procedural WebGL Background** — Five holographic code panels float in 3D space, rendered live with Three.js. Each panel displays real syntax-highlighted code from actual projects (React, Java Spring Boot, SQL, Agentforce prompt templates, and Node.js). Panels gently bob and rotate; the camera parallax-follows the mouse.
-- **Floating Code Word Sprites** — 30+ code keywords (`async`, `</>`, `useState`, `@RestController`, `SELECT *`, `LLM`, `git push`, etc.) drift in 3D space with cyan/purple glow.
-- **Particle Field** — 560 additive-blended glowing particles (cyan + purple) scattered across the scene.
-- **Terminal Hero** — Animated typewriter effect in a mock terminal window that reveals the hero section on completion.
-- **Scroll Reveal Animations** — Every section fades and slides in using `IntersectionObserver`.
-- **Animated Stat Counters** — Numbers count up with an easing curve when scrolled into view.
-- **Timeline Work History** — Staggered animated timeline for all three work roles.
-- **Working Contact Form** — Powered by Formspree. Submissions delivered directly to inbox via `fetch` POST — no mail app, no page reload.
-- **Fully Responsive** — Mobile burger menu, stacked layouts, and scaled typography down to 320px viewports.
-- **Active Nav Highlighting** — Current section detected via `IntersectionObserver` and highlighted in the navbar.
+## Featured projects
 
----
+| Project | What it is | Links |
+|---|---|---|
+| Auto Shop Invoicing CRM | Next.js invoicing + CRM used daily by an NYC auto repair shop | [Demo](https://auto-shop-crm-demo.vercel.app) · [Code](https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM) |
+| NYC GPT | Streaming RAG chatbot (Next.js, TypeScript, LangChain.js, AstraDB) | [Demo](https://nyc-gpt.vercel.app) · [Code](https://github.com/WebDesign-MultiMedia/RAG-chatbot) |
+| POS Invoice Manager | Point-of-sale + invoicing for a Bronx catering business, with Stripe | [Demo](https://pos-invoice-manager.vercel.app) · [Code](https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager) |
+| Suly’s Sweets | Bilingual bakery site + holiday pre-orders with Stripe Checkout | [Site](https://sulys-sweets.vercel.app) · [Code](https://github.com/WebDesign-MultiMedia/SulysSweets) |
+| Casa TK | Bilingual React site for a Bronx café and bakery | [Site](https://casa-tk.vercel.app) · [Code](https://github.com/WebDesign-MultiMedia/Casa_TK) |
 
-## Tech Stack
+## How it's built
 
-| Layer | Technology |
-|---|---|
-| Markup | HTML5 |
-| Styling | CSS3 (custom properties, grid, flexbox, animations, `backdrop-filter`) |
-| Interactivity | Vanilla JavaScript (ES2020+) |
-| 3D Rendering | [Three.js](https://threejs.org/) r160 — WebGL via CDN |
-| Typography | [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) + [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts |
-| Contact Form | [Formspree](https://formspree.io/) — serverless form backend |
-| Version Control | Git + GitHub |
-
----
-
-## Project Structure
+- **Static HTML, CSS, and vanilla JavaScript**, with no framework and no build step. It's hosted on GitHub Pages from the `main` branch.
+- **`style.css`** holds the design tokens (colors, fonts, spacing) and every component style. The look is a dark terminal theme using JetBrains Mono + Inter.
+- **`script.js`** is shared by both pages: the mobile menu, typewriter, scroll reveal, project count, footer year, and the Formspree contact form.
+- **3D background:** a Three.js scene of floating code panels on the homepage. It loads from a CDN only on wide screens, only after the visitor first moves the mouse or scrolls (or after 7s), and never when `prefers-reduced-motion` is set. It's purely decorative.
+- **Screenshots:** in `assets/screenshots/`, WebP captures of each project's live demo, taken with Playwright. They show demo or public data only.
+- **Accessibility and SEO:** semantic landmarks, a skip link, visible focus styles, AA color contrast, alt text, lazy-loaded images, a unique title and description per page, Open Graph/Twitter cards, a canonical URL, and JSON-LD for the Person.
 
 ```
-Julio_Salas/
-├── index.html       # Full single-page markup — all sections
-├── style.css        # All styles — tokens, layout, components, responsive
-├── script.js        # Three.js 3D scene + all portfolio UI logic
-├── imgs/            # Reference images (not used in final render)
-│   ├── abstract-php-c-analytics.jpg
-│   └── human-hand-pointing-...webp
-└── README.md        # This file
+├── index.html
+├── projects.html
+├── style.css
+├── script.js
+└── assets/
+    ├── screenshots/        # project screenshots (.webp)
+    ├── og-image.jpg        # link-preview image
+    └── Julio_Salas_Resume.pdf   # (add this file)
 ```
 
----
-
-## 3D Scene Architecture
-
-The WebGL background is built entirely in `script.js` inside an IIFE (`initScene`). No external 3D assets are loaded — everything is generated at runtime.
-
-### Code Panels
-Each of the five floating panels is a `THREE.PlaneGeometry` mesh with a `THREE.CanvasTexture`. The texture is drawn at runtime using the Canvas 2D API:
-- Dark translucent background with scanline overlay
-- Cyan-to-purple gradient border with corner bracket accents
-- Mac-style traffic light dots + filename in a title bar
-- Per-line syntax coloring via regex pattern matching on the code string
-- Line numbers in the gutter
-
-Panels animate with a sine-wave float keyed to `clock.getElapsedTime()` and a unique random phase offset per panel.
-
-### Word Sprites
-`THREE.Sprite` objects with canvas-drawn text textures. Each has a random hue (192° cyan or 268° purple), `shadowBlur` glow, and an independent float phase.
-
-### Particles
-Two `THREE.Points` systems (cyan + purple) using `THREE.AdditiveBlending` for the additive glow look. Positions are randomized once at init.
-
-### Camera
-The camera follows mouse position using linear interpolation (`lerp`) applied every frame, creating a smooth parallax feel without any jarring snapping.
-
----
-
-## Contact Form
-
-Powered by [Formspree](https://formspree.io/). The form submits via `fetch` with `Content-Type: application/json`. Responses are handled gracefully — success shows a confirmation message; errors surface a descriptive alert. No mail client is opened.
-
-To swap the endpoint, find this line in `script.js`:
-```js
-const res = await fetch('https://formspree.io/f/mykqpoao', {
-```
-
----
-
-## Local Development
-
-No build tools required. Open directly in a browser:
+## Run locally
 
 ```bash
-open index.html
-# or
-npx serve .
+python3 -m http.server 8000   # or: npx serve .
+# open http://localhost:8000
 ```
 
-Three.js loads from the jsDelivr CDN — an internet connection is required on first load. All other assets are local.
+## Contact
 
----
-
-## Author
-
-**Julio Salas**
-AI Prompt Engineer · Full Stack Developer · The Bronx, NY
-
-- GitHub: [github.com/WebDesign-MultiMedia](https://github.com/WebDesign-MultiMedia)
-- LinkedIn: [linkedin.com/in/julio-salas-webdeveloper](https://www.linkedin.com/in/julio-salas-webdeveloper/)
-- Email: Jsalas198016@gmail.com
+- Jobs: jsalas198016@gmail.com
+- Freelance & website projects: webdesignmultimediany@gmail.com
+- LinkedIn: https://www.linkedin.com/in/julio-salas-webdeveloper/
+- GitHub: https://github.com/WebDesign-MultiMedia

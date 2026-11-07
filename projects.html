@@ -3,1159 +3,377 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Work & Projects | Julio Salas</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Projects | Julio Salas — Full Stack &amp; AI Engineer</title>
+  <meta name="description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
+  <meta name="author" content="Julio Salas" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="canonical" href="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/projects.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a0e17%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2245%22%20font-family%3D%22monospace%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%2300d4ff%22%3E%26gt%3B_%3C%2Ftext%3E%3C%2Fsvg%3E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Julio Salas — Portfolio" />
+  <meta property="og:title" content="Projects | Julio Salas — Full Stack &amp; AI Engineer" />
+  <meta property="og:description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
+  <meta property="og:url" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/projects.html" />
+  <meta property="og:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Auto Shop Invoicing CRM dashboard built by Julio Salas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects | Julio Salas — Full Stack &amp; AI Engineer" />
+  <meta name="twitter:description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
+  <meta name="twitter:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ── PAGE-SPECIFIC OVERRIDES ─────────────────────────────── */
-    body { overflow-x: hidden; }
-
-    #bg-canvas { display: none; } /* no 3D bg on this page — clean look */
-
-    body {
-      background:
-        radial-gradient(ellipse 120% 60% at 50% -10%, rgba(0,212,255,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 50% at 100% 80%, rgba(124,58,237,0.05) 0%, transparent 50%),
-        var(--bg-primary);
-    }
-
-    /* ── PROJECTS NAV (overrides sticky nav) ─────────────────── */
-    #navbar { background: rgba(10,14,23,0.96); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
-
-    /* ── PAGE HERO ───────────────────────────────────────────── */
-    .page-hero {
-      padding: 130px 0 70px;
-      text-align: center;
-      position: relative;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 1px; height: 48px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-    .page-hero-label {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      letter-spacing: 0.14em;
-      margin-bottom: 16px;
-    }
-    .page-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, #e2e8f0 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 16px;
-      line-height: 1.15;
-    }
-    .page-hero p {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      max-width: 560px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      flex-wrap: wrap;
-    }
-    .hero-meta span { display: flex; align-items: center; gap: 8px; }
-    .hero-meta .dot-live {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-
-    /* ── FILTER BAR ──────────────────────────────────────────── */
-    .filter-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0 24px 56px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      padding: 8px 20px;
-      border-radius: 30px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      background: transparent;
-      cursor: pointer;
-      transition: var(--transition);
-      letter-spacing: 0.04em;
-    }
-    .filter-btn:hover   { border-color: var(--accent); color: var(--accent); }
-    .filter-btn.active  { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
-
-    /* ── PROJECTS GRID ───────────────────────────────────────── */
-    .projects-page { padding: 0 0 100px; }
-    .projects-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    /* ── PROJECT CARD ────────────────────────────────────────── */
-    .proj-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(28px);
-    }
-    .proj-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .proj-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-glow);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(0,212,255,0.07);
-    }
-    .proj-card.hidden-card { display: none; }
-
-    /* screenshot wrapper */
-    .proj-img-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: var(--bg-secondary);
-      flex-shrink: 0;
-    }
-    .proj-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: transform 0.5s ease, filter 0.3s ease;
-      filter: brightness(0.88) saturate(0.9);
-    }
-    .proj-card:hover .proj-img-wrap img {
-      transform: scale(1.04);
-      filter: brightness(1) saturate(1);
-    }
-
-    /* image overlay on hover */
-    .proj-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10,14,23,0.72);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .proj-card:hover .proj-img-overlay { opacity: 1; }
-    .overlay-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: var(--radius);
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      transition: transform 0.2s ease;
-      text-decoration: none;
-    }
-    .overlay-btn:hover { transform: scale(1.05); }
-    .overlay-btn svg  { width: 14px; height: 14px; flex-shrink: 0; }
-    .overlay-btn.live { background: var(--accent); color: #000; }
-    .overlay-btn.code { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
-
-    /* skeleton loader while screenshot loads */
-    .proj-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--bg-secondary) 25%, rgba(30,45,69,0.6) 50%, var(--bg-secondary) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.6s infinite;
-    }
-    .proj-img-wrap img.loaded + .proj-img-overlay,
-    .proj-img-wrap img.loaded::before { animation: none; }
-    @keyframes shimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
-    .proj-img-wrap img { position: relative; z-index: 1; }
-    .proj-img-overlay  { z-index: 2; }
-
-    /* card body */
-    .proj-body {
-      padding: 22px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .proj-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .proj-title {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
-
-    /* category badge */
-    .proj-badge {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 3px 9px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      text-transform: uppercase;
-    }
-    .badge-business { background: rgba(251,146,60,0.12); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
-    .badge-app      { background: rgba(52,211,153,0.10); color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
-    .badge-ai       { background: var(--accent-dim);     color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
-    .badge-fullstack{ background: var(--accent-2-dim);   color: #a78bfa;       border: 1px solid rgba(124,58,237,0.3); }
-
-    .proj-desc {
-      font-size: 0.86rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-
-    /* live indicator row */
-    .proj-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--green);
-      margin-bottom: 14px;
-    }
-    .proj-status .dot-live { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 6px currentColor; }
-
-    /* tech tags */
-    .proj-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-    .proj-tech span {
-      font-family: var(--font-mono);
-      font-size: 0.67rem;
-      color: var(--text-muted);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    /* card CTA buttons */
-    .proj-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-    .proj-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: var(--radius);
-      border: 1px solid;
-      transition: var(--transition);
-      text-decoration: none;
-    }
-    .proj-btn svg { width: 13px; height: 13px; }
-    .proj-btn.live-btn { background: var(--accent); color: #000; border-color: var(--accent); }
-    .proj-btn.live-btn:hover { background: #33ddff; transform: translateY(-2px); }
-    .proj-btn.code-btn { background: transparent; color: var(--text-secondary); border-color: var(--border); }
-    .proj-btn.code-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-    /* ── FEATURED WIDE CARD ──────────────────────────────────── */
-    .proj-card.wide {
-      grid-column: span 2;
-      flex-direction: row;
-    }
-    .proj-card.wide .proj-img-wrap {
-      width: 48%;
-      aspect-ratio: auto;
-      flex-shrink: 0;
-    }
-    .proj-card.wide .proj-body { padding: 32px 28px; }
-    .proj-card.wide .proj-title { font-size: 1.15rem; }
-    .proj-card.wide .proj-desc { font-size: 0.9rem; }
-
-    /* ── SECTION DIVIDERS ────────────────────────────────────── */
-    .proj-section-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding-bottom: 20px;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .proj-section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .proj-section-wrap { margin-bottom: 60px; }
-
-    /* ── CTA BOTTOM ──────────────────────────────────────────── */
-    .page-cta {
-      text-align: center;
-      padding: 40px 24px 80px;
-    }
-    .page-cta h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .page-cta p {
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-      font-size: 0.95rem;
-    }
-    .page-cta .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-    /* ── RESPONSIVE ──────────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .proj-grid { grid-template-columns: repeat(2, 1fr); }
-      .proj-card.wide { grid-column: span 2; }
-    }
-    @media (max-width: 680px) {
-      .proj-grid { grid-template-columns: 1fr; }
-      .proj-card.wide { grid-column: span 1; flex-direction: column; }
-      .proj-card.wide .proj-img-wrap { width: 100%; aspect-ratio: 16/9; }
-      .page-hero { padding: 110px 0 60px; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" /></noscript>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <canvas id="bg-canvas"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- NAV -->
-  <nav id="navbar" class="scrolled">
-    <div class="nav-logo">
-      <a href="index.html" style="text-decoration:none;color:inherit;">
-        <span class="prompt-char">&gt;</span> julio_salas<span class="cursor-blink">_</span>
+  <header>
+    <nav id="navbar" aria-label="Main" class="scrolled scrolled-fixed">
+      <a href="index.html" class="nav-logo" aria-label="Julio Salas, home">
+        <span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas<span class="cursor-blink" aria-hidden="true">_</span>
       </a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html#about">about</a></li>
-      <li><a href="index.html#skills">skills</a></li>
-      <li><a href="index.html#experience">experience</a></li>
-      <li><a href="projects.html" style="color:var(--accent);">portfolio</a></li>
-      <li><a href="index.html#education">education</a></li>
-      <li><a href="index.html#contact" class="nav-cta">contact</a></li>
-    </ul>
-    <button class="burger" id="burger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="index.html#skills">skills</a></li>
+        <li><a href="index.html#experience">experience</a></li>
+        <li><a href="projects.html" aria-current="page">projects</a></li>
+        <li><a href="index.html#education">education</a></li>
+        <li><a href="index.html#contact" class="nav-cta">contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="container">
-      <p class="page-hero-label">// client work & projects</p>
-      <h1>Business Portfolio</h1>
-      <p>Real websites and applications built for businesses, clients, and capstone projects — from restaurant brands to enterprise AI workflows.</p>
-      <div class="hero-meta">
-        <span><span class="dot-live"></span> 14 live projects</span>
-        <span>// HTML · CSS · JS · React · Java · Python</span>
-        <span><a href="https://github.com/WebDesign-MultiMedia" target="_blank" style="color:var(--accent);font-family:var(--font-mono);font-size:0.78rem;">github.com/WebDesign-MultiMedia →</a></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- FILTER BAR -->
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All Projects</button>
-    <button class="filter-btn" data-filter="business">Business Sites</button>
-    <button class="filter-btn" data-filter="app">Web Apps</button>
-    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-    <button class="filter-btn" data-filter="ai">AI Projects</button>
-  </div>
-
-  <!-- PROJECTS -->
-  <div class="projects-page">
-    <div class="projects-wrap">
-
-      <!-- ── BUSINESS & CLIENT SITES ── -->
-      <div class="proj-section-wrap" id="section-business">
-        <div class="proj-section-label">Business & Client Sites</div>
-        <div class="proj-grid">
-
-          <!-- BLFM — FEATURED WIDE -->
-          <div class="proj-card wide" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/blfm-logo.png"
-                alt="Buffet Lucia's Fiesta Mexicana logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://buffetluciasfiestamexicana.com/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BLFM-Catering-Menu-NewLook" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Buffet Lucia's Fiesta Mexicana</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on custom domain</div>
-              <p class="proj-desc">Full business website for a Mexican catering restaurant — featuring the full menu, catering packages, online ordering information, business hours, and contact details. Deployed on a custom domain with a modern, mobile-first design that reflects the brand's identity.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span><span>Custom Domain</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://buffetluciasfiestamexicana.com/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BLFM-Catering-Menu-NewLook" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- BLFM GitHub Pages version -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/blfm-logo-original.png"
-                alt="Buffet Lucia's Fiesta Mexicana original 2023 logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/BuffetLuciasFiestaMexicana/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BuffetLuciasFiestaMexicana" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">BLFM — Original Site</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">The original restaurant website for Buffet Lucia's Fiesta Mexicana. Features a full digital menu layout, catering information, and brand presentation — the foundation before the custom domain migration.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>GitHub Pages</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/BuffetLuciasFiestaMexicana/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BuffetLuciasFiestaMexicana" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- LALA'S PIZZERIA -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/lala-pizzeria-logo.svg"
-                alt="LALA's Pizzeria logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/LALA-S-Pizzeria/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/LALA-S-Pizzeria" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">LALA's Pizzeria</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Restaurant website for LALA's Pizzeria in Queens Village, NY. Redesigned with a custom circular badge logo, elegant brand typography, a limited-time specials section with live pricing, hours, and directions.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/LALA-S-Pizzeria/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/LALA-S-Pizzeria" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PEOPLESHORES DC -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="https://image.thum.io/get/width/800/crop/450/https://webdesign-multimedia.github.io/PeopleShores-DC-Landing-Page/"
-                alt="PeopleShores DC landing page screenshot"
-                loading="lazy"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/PeopleShores-DC-Landing-Page/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/PeopleShores-DC-Landing-Page" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">PeopleShores DC</h2>
-                <span class="proj-badge badge-business">Corporate</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Professional corporate landing page for PeopleShores DC, a workforce development organization. Built during my Full Stack Developer role at PeopleShores, featuring program highlights, service offerings, and a clean professional layout.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/PeopleShores-DC-Landing-Page/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/PeopleShores-DC-Landing-Page" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- CASA TK -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/casa-tk-logo.png"
-                alt="Casa TK logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://casa-tk.vercel.app" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Casa_TK" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Casa TK</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on Vercel</div>
-              <p class="proj-desc">Business website for Casa TK, a coffee shop and bakery in the Bronx. Modern, responsive design built to showcase the menu and brand for local coffee and bakery customers.</p>
-              <div class="proj-tech">
-                <span>JavaScript</span><span>Vercel</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://casa-tk.vercel.app" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Casa_TK" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- LIPY'S DAY CARE -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="https://image.thum.io/get/width/800/crop/450/https://lipys-day-care.vercel.app?_r=2"
-                alt="Lipy's Day Care website screenshot"
-                loading="lazy"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://lipys-day-care.vercel.app" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Lipys_Day_Care" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Lipy's Day Care</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on Vercel</div>
-              <p class="proj-desc">Business website for Lipy's Day Care, a licensed childcare provider in the Bronx, NY. Presents the facility's programs, hours, and contact information for prospective families.</p>
-              <div class="proj-tech">
-                <span>JavaScript</span><span>Vercel</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://lipys-day-care.vercel.app" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Site
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Lipys_Day_Care" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- BERLIN GROUP FAMILY DAYCARE -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/berlin-daycare-logo.png"
-                alt="Berlin Group Family Daycare logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/Berlin_Group_Family_DayCare/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Berlin_Group_Family_DayCare" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Berlin Group Family Daycare</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Licensed family daycare website for Berlin Group Family Daycare in the Bronx, NY. Bilingual (English/Spanish) site covering programs for infants through school-age children, daily schedules, credentials, and enrollment info.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bilingual</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/Berlin_Group_Family_DayCare/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Berlin_Group_Family_DayCare" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- LOTUS FAMILY GROUP DAYCARE -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/lotus-daycare-logo.svg"
-                alt="Lotus Family Group Daycare logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/Lotus-Family-Group-daycare/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Lotus-Family-Group-daycare" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Lotus Family Group Daycare</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Licensed family group daycare website for LOTUS Family Group Daycare in the Bronx, NY. Showcases programs for infants through age 13, daily schedules, safety and educational features, and owner credentials.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/Lotus-Family-Group-daycare/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Lotus-Family-Group-daycare" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- TEAM TECH AUTO ELECTRIC -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/teamtech-logo.svg"
-                alt="Team Tech Auto Electric logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/Team_Tech/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Team_Tech" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Team Tech Auto Electric</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Bilingual (English/Spanish) business website for Team Tech Auto Electric, an auto repair and electrical shop in the Bronx, NY. Redesigned with a live diagnostic dashboard widget, a "How It Works" process section, and a blue-to-teal branded interface.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bilingual</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/Team_Tech/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Team_Tech" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- JUNIOR'S MOVING SERVICES -->
-          <div class="proj-card" data-category="business">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/juniors-moving-graphic.png"
-                alt="Junior's Moving Services moving truck illustration"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/JuniorsMovingServices/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/JuniorsMovingServices" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Junior's Moving Services</h2>
-                <span class="proj-badge badge-business">Business</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Business website for Junior's Moving Services, a local and long-distance moving company. Covers residential and commercial relocations, a services overview, quote request, and direct call-to-action for scheduling — even last-minute moves.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Responsive Design</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/JuniorsMovingServices/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/JuniorsMovingServices" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ── WEB APPLICATIONS ── -->
-      <div class="proj-section-wrap" id="section-apps">
-        <div class="proj-section-label">Web Applications</div>
-        <div class="proj-grid">
-
-          <!-- TRACKER WORLD -->
-          <div class="proj-card" data-category="app">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/tracker-world.png"
-                alt="Tracker World app screenshot"
-                loading="lazy"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/Tracker_World/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Tracker_World" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Tracker World</h2>
-                <span class="proj-badge badge-app">Capstone 2025</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">All-in-one business tracker for small-scale entrepreneurs — food vendors, freelancers, pop-ups, and local hustlers. Eight dedicated trackers (income, expenses, sales, inventory, payments, tasks, clients, services) in one dashboard, running entirely in-browser with local storage — no signup, no cost, works offline.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>JavaScript</span><span>Tailwind CSS</span><span>Local Storage</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/Tracker_World/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/Tracker_World" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- BUFFET DELIVERY TRACKER -->
-          <div class="proj-card" data-category="app">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/buffet-tracker-logo.svg"
-                alt="Delivery Tracker logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/BuffetDeliveryTracker/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BuffetDeliveryTracker" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Delivery Tracker</h2>
-                <span class="proj-badge badge-app">Business Tool</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Order and delivery ticket tool built for Buffet Lucia's Fiesta Mexicana. Redesigned with a dark, glass-panel interface — logs customer info, order details, and generates lookup-ready invoices for the business operations team.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Local Storage</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/BuffetDeliveryTracker/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/BuffetDeliveryTracker" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- LOG ME -->
-          <div class="proj-card" data-category="app">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/logme-logo.png"
-                alt="LogMe app logo"
-                loading="lazy"
-                style="object-fit:contain; background:transparent;"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/LogMe/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/LogMe" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">Log Me</h2>
-                <span class="proj-badge badge-app">Web App</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">Activity and event logging web application. Allows users to record, categorize, and review entries over time — useful for personal productivity, journaling, or lightweight task tracking.</p>
-              <div class="proj-tech">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Local Storage</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/LogMe/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/LogMe" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ── FULL STACK & AI ── -->
-      <div class="proj-section-wrap" id="section-ai">
-        <div class="proj-section-label">Full Stack & AI Projects</div>
-        <div class="proj-grid">
-
-          <!-- V-TRACKER CAPSTONE — FEATURED WIDE -->
-          <div class="proj-card wide" data-category="fullstack">
-            <div class="proj-img-wrap">
-              <img
-                src="images/projects/vtracker-hero.jpg"
-                alt="V Tracker hero background"
-                loading="lazy"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://v-tacker.vercel.app/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/V-Tracker_Capstone" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">V-Tracker — Vehicle Maintenance System</h2>
-                <span class="proj-badge badge-fullstack">Full Stack</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live Demo</div>
-              <p class="proj-desc">Full stack vehicle maintenance tracking application engineered from the ground up. React.js + Tailwind CSS frontend, Java Spring Boot REST API backend, MySQL database with Google Sheets API integration for data reporting and visualization. Prompt engineering was applied throughout development — using ChatGPT and Gemini to convert product specs into technical instructions and debug complex logic.</p>
-              <div class="proj-tech">
-                <span>React.js</span><span>Tailwind CSS</span><span>Java</span><span>Spring Boot</span>
-                <span>MySQL</span><span>REST API</span><span>Google Sheets API</span><span>Prompt Engineering</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://v-tacker.vercel.app/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/V-Tracker_Capstone" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- RAG CHATBOT -->
-          <div class="proj-card" data-category="ai">
-            <div class="proj-img-wrap">
-              <img
-                src="https://image.thum.io/get/width/800/crop/450/https://webdesign-multimedia.github.io/RAG-chatbot/"
-                alt="RAG Chatbot screenshot"
-                loading="lazy"
-              />
-              <div class="proj-img-overlay">
-                <a href="https://webdesign-multimedia.github.io/RAG-chatbot/" target="_blank" class="overlay-btn live">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot" target="_blank" class="overlay-btn code">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  Code
-                </a>
-              </div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-top">
-                <h2 class="proj-title">RAG Chatbot</h2>
-                <span class="proj-badge badge-ai">AI Project</span>
-              </div>
-              <div class="proj-status"><span class="dot-live"></span> Live on GitHub Pages</div>
-              <p class="proj-desc">AI-powered chatbot using Retrieval-Augmented Generation (RAG). Allows users to query a knowledge base with natural language and receive context-aware responses grounded in source documents rather than hallucinated answers.</p>
-              <div class="proj-tech">
-                <span>Python</span><span>LangChain</span><span>OpenAI</span><span>JavaScript</span><span>RAG</span><span>Vector DB</span>
-              </div>
-              <div class="proj-btns">
-                <a href="https://webdesign-multimedia.github.io/RAG-chatbot/" target="_blank" class="proj-btn live-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot" target="_blank" class="proj-btn code-btn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div><!-- /projects-wrap -->
-
-    <!-- CTA -->
-    <div class="page-cta">
+  <main id="main">
+    <div class="page-hero">
       <div class="container">
-        <h2>Have a project in mind?</h2>
-        <p>I'm available for freelance work, contract roles, and full-time opportunities.</p>
-        <div class="cta-btns">
-          <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
-          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" class="btn btn-outline">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            All Repos
-          </a>
-          <a href="index.html" class="btn btn-outline">← Back to Portfolio</a>
+        <p class="page-hero-label">// projects</p>
+        <h1>Projects</h1>
+        <p>Production apps I build and run for real NYC businesses, an AI chatbot, and websites for local shops.</p>
+        <div class="hero-meta">
+          <span data-project-count></span>
+          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer">github.com/WebDesign-MultiMedia →<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
 
-  </div><!-- /projects-page -->
+    <div class="projects-page">
+      <div class="container">
 
-  <!-- FOOTER -->
+        <section aria-labelledby="featured-title">
+          <h2 class="section-title" id="featured-title">Featured Projects</h2>
+          <div class="featured-list">
+
+        <article class="fcard reveal" id="project-crm" aria-labelledby="title-crm">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/crm-dashboard-desktop.webp" width="1280" height="800" alt="Auto Shop CRM demo dashboard with D3.js charts of weekly revenue and revenue by service type, on sample data" fetchpriority="high" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/crm-dashboard-mobile.webp" width="390" height="844" alt="Auto Shop CRM demo dashboard on a phone, with bottom navigation" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <a href="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="Auto Shop Invoicing CRM CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-crm">Auto Shop Invoicing CRM</h3>
+            <p class="fcard-what">Invoicing and customer CRM used every day by a real NYC auto repair shop.</p>
+            <ul class="fcard-points">
+              <li>Staff login with scrypt-hashed passwords and signed sessions; public invoice links are AES-256-GCM encrypted.</li>
+              <li>D3.js dashboards for weekly revenue, service mix, and payment methods, plus a camera VIN scanner.</li>
+              <li>Separate public demo running on fake data, with Vitest tests and a GitHub Actions CI pipeline.</li>
+            </ul>
+            <p class="fcard-note"><strong>Demo login:</strong> demo@example.com / TryTheDemo2026</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>Next.js</li><li>React</li><li>JavaScript</li><li>Tailwind</li><li>D3.js</li><li>SheetDB</li><li>Resend</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://auto-shop-crm-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/Auto-Shop-Invoicing-CRM" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-nycgpt" aria-labelledby="title-nycgpt">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/nyc-gpt-desktop.webp" width="1280" height="800" alt="NYC GPT chat screen with suggested questions for each borough and a message box" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/nyc-gpt-mobile.webp" width="390" height="844" alt="NYC GPT chat screen on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-ai">AI / LLM</span>
+            <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="NYC GPT — RAG Chatbot CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/RAG-chatbot/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-nycgpt">NYC GPT — RAG Chatbot</h3>
+            <p class="fcard-what">A streaming AI chatbot that answers questions about New York City, grounded in retrieved Wikipedia sources.</p>
+            <ul class="fcard-points">
+              <li>RAG pipeline: scrape pages → chunk with LangChain.js → embed with OpenAI → AstraDB vector search → grounded GPT answer.</li>
+              <li>Answers stream token by token to the chat UI using the Vercel AI SDK.</li>
+              <li>Per-IP rate limiting plus message-length, history, and response-token caps to keep API cost bounded.</li>
+            </ul>
+            
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>Next.js</li><li>TypeScript</li><li>React</li><li>Vercel AI SDK</li><li>LangChain.js</li><li>OpenAI API</li><li>Embeddings</li><li>AstraDB</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://nyc-gpt.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/RAG-chatbot" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-pos" aria-labelledby="title-pos">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/pos-order-desktop.webp" width="1280" height="800" alt="POS Invoice Manager in demo mode showing the customer order form for a sample café" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/pos-order-mobile.webp" width="390" height="844" alt="POS Invoice Manager demo order form on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <span class="badge badge-prod">In production since Aug 2025</span>
+            <a href="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="POS Invoice Manager CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-pos">POS Invoice Manager</h3>
+            <p class="fcard-what">Point-of-sale and invoicing app for a real Bronx catering business.</p>
+            <ul class="fcard-points">
+              <li>Stripe card payments with the amount and credit-card surcharge computed on the server, not trusted from the browser.</li>
+              <li>Staff login, signed read-only invoice links, and printable invoices.</li>
+              <li>SMS specials broadcast through Twilio, sent only to customers who opted in.</li>
+            </ul>
+            <p class="fcard-note"><strong>No login needed:</strong> press “Try the demo” on the sign-in screen (sample data only).</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>React</li><li>Vite</li><li>JavaScript</li><li>Tailwind</li><li>Node.js serverless</li><li>Stripe</li><li>Twilio</li><li>SheetDB</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://pos-invoice-manager.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Demo<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/POS-Invoice-Manager" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-sulys" aria-labelledby="title-sulys">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/sulys-sweets-desktop.webp" width="1280" height="800" alt="Suly’s Sweets homepage with the headline “Cakes made for your celebration” and an English/Spanish toggle" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/sulys-sweets-mobile.webp" width="390" height="844" alt="Suly’s Sweets homepage on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            <a href="https://github.com/WebDesign-MultiMedia/SulysSweets/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer" aria-label="Suly’s Sweets CI status on GitHub Actions (opens in a new tab)"><img class="ci-badge" src="https://github.com/WebDesign-MultiMedia/SulysSweets/actions/workflows/ci.yml/badge.svg" alt="CI status" width="90" height="20" loading="lazy" /></a>
+            </div>
+            <h3 class="fcard-title" id="title-sulys">Suly’s Sweets</h3>
+            <p class="fcard-what">Bilingual (English/Spanish) bakery website and holiday pre-order system for a Bronx home bakery.</p>
+            <ul class="fcard-points">
+              <li>Stripe Checkout for 50% deposits, with every price recomputed on the server from the product catalog.</li>
+              <li>Signature-verified Stripe webhook that sends email receipts through Resend.</li>
+              <li>Lighthouse-optimized, with Vitest tests (including an English/Spanish translation check) and CI.</li>
+            </ul>
+            <p class="fcard-note"><strong>Try it:</strong> holiday checkout runs in Stripe test mode.</p>
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>React</li><li>Vite</li><li>JavaScript</li><li>Tailwind</li><li>Node.js serverless</li><li>Stripe</li><li>Resend</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://sulys-sweets.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Site<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/SulysSweets" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="fcard reveal" id="project-casatk" aria-labelledby="title-casatk">
+          <div class="fcard-media">
+            <img class="shot-desktop" src="assets/screenshots/casa-tk-desktop.webp" width="1280" height="800" alt="Casa TK homepage with the headline “Your home away from home, one cafecito at a time”" loading="lazy" decoding="async" />
+            <img class="shot-mobile" src="assets/screenshots/casa-tk-mobile.webp" width="390" height="844" alt="Casa TK homepage on a phone" loading="lazy" decoding="async" />
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-badges">
+            <span class="badge badge-client">Built for a real client</span>
+            </div>
+            <h3 class="fcard-title" id="title-casatk">Casa TK</h3>
+            <p class="fcard-what">Bilingual (English/Spanish) website for a Bronx café and bakery.</p>
+            <ul class="fcard-points">
+              <li>Multi-page React app with React Router, so every page has its own shareable URL.</li>
+              <li>Modern, responsive redesign built around the shop’s real menu, photos, and hours.</li>
+              <li>SEO and Open Graph / Twitter meta tags for clean search results and link previews.</li>
+            </ul>
+            
+            <ul class="tech-tags" aria-label="Tech stack">
+              <li>React</li><li>Vite</li><li>React Router</li><li>JavaScript</li><li>Tailwind</li>
+            </ul>
+            <div class="card-btns">
+              <a href="https://casa-tk.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Live Site<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a href="https://github.com/WebDesign-MultiMedia/Casa_TK" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+          </div>
+        </section>
+
+        <section class="subsection" aria-labelledby="client-title">
+          <h2 class="subsection-title" id="client-title">Client Websites</h2>
+          <p class="subsection-intro">Websites for NYC small businesses.</p>
+          <div class="site-grid">
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/blfm-desktop.webp" width="800" height="500" alt="Buffet Lucia’s Fiesta Mexicana catering menu homepage in Spanish" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Buffet Lucia’s Fiesta Mexicana</h3>
+              <p class="site-desc">Bilingual catering menu site for a Bronx Mexican restaurant, on its own custom domain.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Tailwind</li></ul>
+              <div class="card-btns">
+                <a href="https://buffetluciasfiestamexicana.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Buffet Lucia’s Fiesta Mexicana (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/BLFM-Catering-Menu-NewLook" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Buffet Lucia’s Fiesta Mexicana (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/team-tech-desktop.webp" width="800" height="500" alt="Team Tech Auto Electric homepage with the headline “Car not starting? Check engine light on?”" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Team Tech Auto Electric</h3>
+              <p class="site-desc">Bilingual one-page site for a Bronx auto repair and electrical shop, built to drive phone calls.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/Team_Tech/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Team Tech Auto Electric (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/Team_Tech" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Team Tech Auto Electric (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/berlin-daycare-desktop.webp" width="800" height="500" alt="Berlin Group Family Daycare homepage with its logo and an English/Spanish toggle" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Berlin Group Family Daycare</h3>
+              <p class="site-desc">Bilingual (English/Spanish) website for a Bronx family daycare.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/Berlin_Group_Family_DayCare/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Berlin Group Family Daycare (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/Berlin_Group_Family_DayCare" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Berlin Group Family Daycare (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/lalas-pizzeria-desktop.webp" width="800" height="500" alt="LALA’s Pizzeria homepage with its round logo and specials section" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">LALA’s Pizzeria</h3>
+              <p class="site-desc">Responsive restaurant site for a Queens Village pizzeria, with specials, hours, and directions.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/LALA-S-Pizzeria/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: LALA’s Pizzeria (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/LALA-S-Pizzeria" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: LALA’s Pizzeria (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/lipys-daycare-desktop.webp" width="800" height="500" alt="Lipy’s Day Care homepage with the headline “Quality child care your family can afford”" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Lipy’s Day Care</h3>
+              <p class="site-desc">Website for a South Bronx day care: programs, hours, and enrollment.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>React</li><li>Vite</li><li>Tailwind</li></ul>
+              <div class="card-btns">
+                <a href="https://lipys-day-care.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Lipy’s Day Care (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/Lipys_Day_Care" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Lipy’s Day Care (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+          </div>
+        </section>
+
+        <section class="subsection" aria-labelledby="more-title">
+          <h2 class="subsection-title" id="more-title">More Projects</h2>
+          <p class="subsection-intro">Earlier sites and apps.</p>
+          <div class="site-grid">
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/peopleshores-dc-desktop.webp" width="800" height="500" alt="PeopleShores DC landing page headline “Apprenticeship that builds careers”" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">PeopleShores DC Landing Page</h3>
+              <p class="site-desc">Responsive landing page for the PeopleShores Delivery Center apprenticeship program.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>JavaScript</li><li>Tailwind</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/PeopleShores-DC-Landing-Page/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: PeopleShores DC Landing Page (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/PeopleShores-DC-Landing-Page" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: PeopleShores DC Landing Page (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/lotus-daycare-desktop.webp" width="800" height="500" alt="Lotus Family Group Daycare homepage with a large yellow logo" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Lotus Family Group Daycare</h3>
+              <p class="site-desc">Single-page website for a Bronx family group daycare.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/Lotus-Family-Group-daycare/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Lotus Family Group Daycare (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/Lotus-Family-Group-daycare" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Lotus Family Group Daycare (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/juniors-moving-desktop.webp" width="800" height="500" alt="Junior’s Moving Services homepage with a moving-truck illustration" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Junior’s Moving Services</h3>
+              <p class="site-desc">Marketing site for a local and long-distance moving company, with a quote call-to-action.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>CSS</li><li>Bootstrap</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/JuniorsMovingServices/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Junior’s Moving Services (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/JuniorsMovingServices" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Junior’s Moving Services (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card reveal">
+            <img src="assets/screenshots/tracker-world-desktop.webp" width="800" height="500" alt="Tracker World homepage with the headline “Run your hustle. Track everything.”" loading="lazy" decoding="async" />
+            <div class="site-body">
+              <h3 class="site-title">Tracker World</h3>
+              <p class="site-desc">Browser-based tracker for small sellers: income, expenses, sales, inventory, and tasks, saved in localStorage.</p>
+              <ul class="tech-tags" aria-label="Tech stack"><li>HTML</li><li>JavaScript</li><li>Tailwind</li><li>localStorage</li></ul>
+              <div class="card-btns">
+                <a href="https://webdesign-multimedia.github.io/Tracker_World/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Site<span class="visually-hidden">: Tracker World (opens in a new tab)</span></a>
+                <a href="https://github.com/WebDesign-MultiMedia/Tracker_World" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code<span class="visually-hidden">: Tracker World (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <section class="page-cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Hiring, or have a project in mind?</h2>
+      <p>Open to Full Stack, Front-End, and AI Engineer roles — and to freelance website and app projects.</p>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="assets/Julio_Salas_Resume.pdf" class="btn btn-outline" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Resume</a>
+        <a href="index.html" class="btn btn-outline">← Back to Home</a>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p class="footer-logo"><span class="prompt-char">&gt;</span> julio_salas</p>
-        <p class="footer-copy">Designed &amp; Built by Julio Salas · 2025</p>
+        <p class="footer-logo"><span class="prompt-char" aria-hidden="true">&gt;</span> julio_salas</p>
+        <p class="footer-copy">Designed &amp; built by Julio Salas · &copy; <span data-year>2026</span></p>
         <div class="footer-links">
-          <a href="https://github.com/WebDesign-MultiMedia" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/WebDesign-MultiMedia" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a href="https://www.linkedin.com/in/julio-salas-webdeveloper/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    /* ── BURGER ──────────────────────────────────────────────── */
-    const burger   = document.getElementById('burger');
-    const navLinks = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-    /* ── FILTER ──────────────────────────────────────────────── */
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards      = document.querySelectorAll('.proj-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.dataset.filter;
-        cards.forEach(card => {
-          const match = filter === 'all' || card.dataset.category === filter;
-          card.classList.toggle('hidden-card', !match);
-        });
-      });
-    });
-
-    /* ── SCROLL REVEAL ───────────────────────────────────────── */
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    cards.forEach(c => obs.observe(c));
-
-    /* ── IMG LOADED CLASS ────────────────────────────────────── */
-    document.querySelectorAll('.proj-img-wrap img').forEach(img => {
-      if (img.complete) img.classList.add('loaded');
-      else img.addEventListener('load', () => img.classList.add('loaded'));
-      img.addEventListener('error', () => {
-        img.style.display = 'none';
-        img.parentElement.style.background = 'linear-gradient(135deg, #0d1220 0%, #111827 100%)';
-      });
-    });
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
