@@ -39,7 +39,7 @@ Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bron
 └── assets/
     ├── screenshots/        # project screenshots (.webp)
     ├── og-image.jpg        # link-preview image
-    └── Julio_Salas_Resume.pdf   # (add this file)
+    └── Julio_Salas_Resume.pdf   # resume (Download Resume buttons)
 ```
 
 ## Run locally
