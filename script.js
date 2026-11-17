@@ -459,7 +459,7 @@ const navbar = document.getElementById('navbar');
 if (navbar && !navbar.classList.contains('scrolled-fixed')) {
   const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  requestAnimationFrame(onScroll); // first check after paint, so reading scrollY never forces a layout before first paint
 }
 
 /* ── Burger menu ─────────────────────────────────────────────── */

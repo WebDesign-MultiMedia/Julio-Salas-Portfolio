@@ -4,31 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Julio Salas — Full Stack &amp; AI Engineer</title>
-  <meta name="description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
+  <meta name="description" content="Websites and web apps by Julio Salas, a Bronx web developer: an auto shop invoicing CRM, a catering POS with Stripe, a bakery pre-order site, an AI chatbot, and websites for Bronx and NYC small businesses." />
   <meta name="author" content="Julio Salas" />
   <meta name="theme-color" content="#0a0e17" />
-  <link rel="canonical" href="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/projects.html" />
+  <link rel="canonical" href="https://juliosalas.dev/projects.html" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230a0e17%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2245%22%20font-family%3D%22monospace%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%2300d4ff%22%3E%26gt%3B_%3C%2Ftext%3E%3C%2Fsvg%3E" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Julio Salas — Portfolio" />
   <meta property="og:title" content="Projects | Julio Salas — Full Stack &amp; AI Engineer" />
-  <meta property="og:description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
-  <meta property="og:url" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/projects.html" />
-  <meta property="og:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta property="og:description" content="Websites and web apps by Julio Salas, a Bronx web developer: an auto shop invoicing CRM, a catering POS with Stripe, a bakery pre-order site, an AI chatbot, and websites for Bronx and NYC small businesses." />
+  <meta property="og:url" content="https://juliosalas.dev/projects.html" />
+  <meta property="og:image" content="https://juliosalas.dev/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Auto Shop Invoicing CRM dashboard built by Julio Salas" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Projects | Julio Salas — Full Stack &amp; AI Engineer" />
-  <meta name="twitter:description" content="Production apps and AI projects by Julio Salas: an auto shop invoicing CRM, a RAG chatbot, a catering POS with Stripe, a bakery pre-order site, and websites for NYC small businesses." />
-  <meta name="twitter:image" content="https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/assets/og-image.jpg" />
+  <meta name="twitter:description" content="Websites and web apps by Julio Salas, a Bronx web developer: an auto shop invoicing CRM, a catering POS with Stripe, a bakery pre-order site, an AI chatbot, and websites for Bronx and NYC small businesses." />
+  <meta name="twitter:image" content="https://juliosalas.dev/assets/og-image.jpg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" /></noscript>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -76,7 +74,7 @@
 
         <article class="fcard reveal" id="project-crm" aria-labelledby="title-crm">
           <div class="fcard-media">
-            <img class="shot-desktop" src="assets/screenshots/crm-dashboard-desktop.webp" width="1280" height="800" alt="Auto Shop CRM demo dashboard with D3.js charts of weekly revenue and revenue by service type, on sample data" fetchpriority="high" decoding="async" />
+            <img class="shot-desktop" src="assets/screenshots/crm-dashboard-desktop.webp" srcset="assets/screenshots/crm-dashboard-desktop-640w.webp 640w, assets/screenshots/crm-dashboard-desktop-960w.webp 960w, assets/screenshots/crm-dashboard-desktop.webp 1280w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" width="1280" height="800" alt="Auto Shop CRM demo dashboard with D3.js charts of weekly revenue and revenue by service type, on sample data" fetchpriority="high" decoding="async" />
             <img class="shot-mobile" src="assets/screenshots/crm-dashboard-mobile.webp" width="390" height="844" alt="Auto Shop CRM demo dashboard on a phone, with bottom navigation" loading="lazy" decoding="async" />
           </div>
           <div class="fcard-body">
@@ -105,7 +103,7 @@
 
         <article class="fcard reveal" id="project-nycgpt" aria-labelledby="title-nycgpt">
           <div class="fcard-media">
-            <img class="shot-desktop" src="assets/screenshots/nyc-gpt-desktop.webp" width="1280" height="800" alt="NYC GPT chat screen with suggested questions for each borough and a message box" loading="lazy" decoding="async" />
+            <img class="shot-desktop" src="assets/screenshots/nyc-gpt-desktop.webp" srcset="assets/screenshots/nyc-gpt-desktop-640w.webp 640w, assets/screenshots/nyc-gpt-desktop-960w.webp 960w, assets/screenshots/nyc-gpt-desktop.webp 1280w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" width="1280" height="800" alt="NYC GPT chat screen with suggested questions for each borough and a message box" loading="lazy" decoding="async" />
             <img class="shot-mobile" src="assets/screenshots/nyc-gpt-mobile.webp" width="390" height="844" alt="NYC GPT chat screen on a phone" loading="lazy" decoding="async" />
           </div>
           <div class="fcard-body">
@@ -134,7 +132,7 @@
 
         <article class="fcard reveal" id="project-pos" aria-labelledby="title-pos">
           <div class="fcard-media">
-            <img class="shot-desktop" src="assets/screenshots/pos-order-desktop.webp" width="1280" height="800" alt="POS Invoice Manager in demo mode showing the customer order form for a sample café" loading="lazy" decoding="async" />
+            <img class="shot-desktop" src="assets/screenshots/pos-order-desktop.webp" srcset="assets/screenshots/pos-order-desktop-640w.webp 640w, assets/screenshots/pos-order-desktop-960w.webp 960w, assets/screenshots/pos-order-desktop.webp 1280w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" width="1280" height="800" alt="POS Invoice Manager in demo mode showing the customer order form for a sample café" loading="lazy" decoding="async" />
             <img class="shot-mobile" src="assets/screenshots/pos-order-mobile.webp" width="390" height="844" alt="POS Invoice Manager demo order form on a phone" loading="lazy" decoding="async" />
           </div>
           <div class="fcard-body">
@@ -164,7 +162,7 @@
 
         <article class="fcard reveal" id="project-sulys" aria-labelledby="title-sulys">
           <div class="fcard-media">
-            <img class="shot-desktop" src="assets/screenshots/sulys-sweets-desktop.webp" width="1280" height="800" alt="Suly’s Sweets homepage with the headline “Cakes made for your celebration” and an English/Spanish toggle" loading="lazy" decoding="async" />
+            <img class="shot-desktop" src="assets/screenshots/sulys-sweets-desktop.webp" srcset="assets/screenshots/sulys-sweets-desktop-640w.webp 640w, assets/screenshots/sulys-sweets-desktop-960w.webp 960w, assets/screenshots/sulys-sweets-desktop.webp 1280w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" width="1280" height="800" alt="Suly’s Sweets homepage with the headline “Cakes made for your celebration” and an English/Spanish toggle" loading="lazy" decoding="async" />
             <img class="shot-mobile" src="assets/screenshots/sulys-sweets-mobile.webp" width="390" height="844" alt="Suly’s Sweets homepage on a phone" loading="lazy" decoding="async" />
           </div>
           <div class="fcard-body">
@@ -193,7 +191,7 @@
 
         <article class="fcard reveal" id="project-casatk" aria-labelledby="title-casatk">
           <div class="fcard-media">
-            <img class="shot-desktop" src="assets/screenshots/casa-tk-desktop.webp" width="1280" height="800" alt="Casa TK homepage with the headline “Your home away from home, one cafecito at a time”" loading="lazy" decoding="async" />
+            <img class="shot-desktop" src="assets/screenshots/casa-tk-desktop.webp" srcset="assets/screenshots/casa-tk-desktop-640w.webp 640w, assets/screenshots/casa-tk-desktop-960w.webp 960w, assets/screenshots/casa-tk-desktop.webp 1280w" sizes="(max-width: 900px) calc(100vw - 48px), 560px" width="1280" height="800" alt="Casa TK homepage with the headline “Your home away from home, one cafecito at a time”" loading="lazy" decoding="async" />
             <img class="shot-mobile" src="assets/screenshots/casa-tk-mobile.webp" width="390" height="844" alt="Casa TK homepage on a phone" loading="lazy" decoding="async" />
           </div>
           <div class="fcard-body">

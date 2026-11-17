@@ -2,13 +2,13 @@
 
 Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bronx). It showcases production apps built for real NYC small businesses, an AI/RAG project, client websites, work experience, and contact info.
 
-**Live:** https://webdesign-multimedia.github.io/Julio-Salas-Portfolio/
+**Live:** https://juliosalas.dev/
 
 ![Auto Shop Invoicing CRM demo dashboard, one of the featured projects](assets/og-image.jpg)
 
 ## Pages
 
-- **`index.html`** — hero, summary, skills, experience, the top 4 featured projects, education, and contact.
+- **`index.html`** — hero, summary, services (websites and web apps for Bronx / NYC businesses), skills, experience, the top 4 featured projects, education, and contact.
 - **`projects.html`** — all featured projects, client websites, and more projects.
 - **`case-study-crm.html`, `case-study-pos.html`** — case studies for the two production client apps: the problem, what was built, key engineering decisions, and testing.
 
@@ -25,11 +25,11 @@ Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bron
 ## How it's built
 
 - **Static HTML, CSS, and vanilla JavaScript**, with no framework and no build step. It's hosted on GitHub Pages from the `main` branch.
-- **`style.css`** holds the design tokens (colors, fonts, spacing) and every component style. The look is a dark terminal theme using JetBrains Mono + Inter.
+- **`style.css`** holds the design tokens (colors, fonts, spacing) and every component style. The look is a dark terminal theme using JetBrains Mono + Inter, self-hosted in `assets/fonts/` (no third-party font requests).
 - **`script.js`** is shared by both pages: the mobile menu, typewriter, scroll reveal, project count, footer year, and the Formspree contact form.
 - **3D background:** a Three.js scene of floating code panels on the homepage. It loads from a CDN only on wide screens, only after the visitor first moves the mouse or scrolls (or after 7s), and never when `prefers-reduced-motion` is set. It's purely decorative.
 - **Screenshots:** in `assets/screenshots/`, WebP captures of each project's live demo, taken with Playwright. They show demo or public data only.
-- **Accessibility and SEO:** semantic landmarks, a skip link, visible focus styles, AA color contrast, alt text, lazy-loaded images, a unique title and description per page, Open Graph/Twitter cards, a canonical URL, and JSON-LD for the Person.
+- **Accessibility and SEO:** semantic landmarks, a skip link, visible focus styles, AA color contrast, alt text, lazy-loaded images, a unique title and description per page, Open Graph/Twitter cards, canonical URLs on juliosalas.dev, `robots.txt` + `sitemap.xml`, and JSON-LD for the Person and a ProfessionalService (Bronx / NYC).
 
 ```
 ├── index.html
