@@ -454,6 +454,46 @@ function initScene() {
    PORTFOLIO UI  —  shared by index.html and projects.html
    ═══════════════════════════════════════════════════════════════ */
 
+/* ── Clean URLs: no ".html" and no "#section" in the address bar ─
+   Links keep their #ids (so they still work without JS); this just
+   scrolls to the section without writing the hash to the URL. */
+(function cleanUrls() {
+  const smooth = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+  const cleanPath = () => location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+
+  const goTo = (id, behavior) => {
+    const target = id && document.getElementById(id);
+    if (!target) return false;
+    target.scrollIntoView({ behavior, block: 'start' });
+    if (!target.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(target.tagName)) {
+      target.setAttribute('tabindex', '-1');
+    }
+    target.focus({ preventScroll: true });
+    return true;
+  };
+
+  // Arriving with /page.html or /#section: strip them, then scroll to the section.
+  const initialId = decodeURIComponent(location.hash.slice(1));
+  if (location.hash || cleanPath() !== location.pathname) {
+    history.replaceState(null, '', cleanPath() + location.search);
+  }
+  if (initialId) {
+    window.addEventListener('load', () => goTo(initialId, 'instant'), { once: true });
+  }
+
+  // Same-page #links (nav, skip link, buttons): scroll without changing the URL.
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest('a[href*="#"]');
+    if (!a || a.target === '_blank') return;
+    const url = new URL(a.href, location.href);
+    const samePage = url.origin === location.origin &&
+      url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') === cleanPath();
+    if (!samePage || !url.hash) return;
+    if (goTo(decodeURIComponent(url.hash.slice(1)), smooth())) e.preventDefault();
+  });
+})();
+
 /* ── Nav background on scroll ────────────────────────────────── */
 const navbar = document.getElementById('navbar');
 if (navbar && !navbar.classList.contains('scrolled-fixed')) {

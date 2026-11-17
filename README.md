@@ -45,8 +45,8 @@ Portfolio site for **Julio Salas**, a Full Stack & AI Engineer in New York (Bron
 ## Run locally
 
 ```bash
-python3 -m http.server 8000   # or: npx serve .
-# open http://localhost:8000
+npx serve .   # serves clean URLs (/projects) like GitHub Pages
+# open http://localhost:3000
 ```
 
 ## Contact
