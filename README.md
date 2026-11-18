@@ -51,7 +51,6 @@ npx serve .   # serves clean URLs (/projects) like GitHub Pages
 
 ## Contact
 
-- Jobs: jsalas198016@gmail.com
-- Freelance & website projects: webdesignmultimediany@gmail.com
+- Email (jobs, freelance & website projects): julio@juliosalas.dev
 - LinkedIn: https://www.linkedin.com/in/julio-salas-webdeveloper/
 - GitHub: https://github.com/WebDesign-MultiMedia
